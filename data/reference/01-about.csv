@@ -1,0 +1,25 @@
+Vetus EC4 (Flexball) engine-control CAN bus: observed codes and timings
+"Draft v0.2, 6 Oct 2026. Dr.FireFly. Rows held pending disclosure to the manufacturers are not included."
+
+What this is,"An independent, listen-only decode of the CAN bus of a Vetus EC4 electronic engine control (Flexball 4500 actuators), twin engines, two twin-lever stations (main helm and flybridge). Every value was observed on one installation; other installations, firmware versions or settings may differ."
+Installation,"Fairline Phantom 42, twin engines. Owner-installed EC4; every EC4 parameter at factory default (shift delays dI and dA both 0.0 s)."
+Method,"Listen-only sniffer (ESP32 with an isolated ISO1050 transceiver, controller in listen-only mode, never transmits, no termination) on a T-junction drop of the EC4 bus. Frames timestamped on receipt (firmware rev D.2) and written to SD as candump text. Test steps typed as timestamped notes from a phone during the captures. Engines off for every capture."
+Captures,"Three captures, 23 Sep, 27 Sep and 2 Oct 2026; 71,094 frames, 38 minutes in all. See the Captures and log sheet."
+Confidence,"Measured = seen directly in a capture, with a labelled test step where stated. Inferred = follows from the captures but not directly tested. Manual = from the Vetus EC4 manual 030624.13 (2024), not from the bus."
+Publish column,Now = published with the receive-side decode. Hold = held pending disclosure to the manufacturers; those rows are not in this folder.
+Timing conventions,"Lever time = receipt time of the first station frame (0x181 or 0x282) showing the new gear byte. Actuator times are receipt times of the actuator frames (0x384, 0x485), which arrive every 153.6 ms, so any actuator time is quantised to about one actuator period. Times are engines-off: with engines running, gear loads and RPM decay may change them."
+Vetus manual,"https://vetus.com/wp-content/uploads/030624.13-r03-2024-10-EC4_EC4HSM-EN.pdf (linked, not reproduced)."
+Licence,CC BY 4.0 (Creative Commons Attribution 4.0).
+Disclaimer,"Not affiliated with, endorsed by or checked by Vetus or Flexball. Vetus, EC4 and Flexball are used only to identify the equipment. Provided as is, with no warranty. Do not transmit on an engine-control bus: a wrong frame can engage a gearbox or open a throttle."
+
+Sheets
+IDs and timing,"Every CAN ID seen, its node, length and measured period"
+Station frame,"Byte map of the station frames 0x181 and 0x282, and the byte-0 flags"
+Actuator codes,"Actuator status byte, the reversal sequence, and an example"
+Boot sequence,Order and timing of the first frames after EC4 power-on
+Shift timing,"Summary of lever-to-actuator response times, from the Shift events sheet"
+Shift events,"Every gear change in the three captures, with its timings"
+Reversals,"Labelled fast reversals, ahead to astern, from capture 3"
+Command and modes,"Taking command from power-on, warm-up and synchronisation"
+Findings,"Everything found, with the date and the capture it came from"
+Captures and log,"The captures, and a dated log of the work"

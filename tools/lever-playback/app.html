@@ -1,0 +1,788 @@
+<title>EC4 Lever Playback</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --ground: #E7ECEB;
+  --surface: #F6F8F7;
+  --ink: #172024;
+  --muted: #56646A;
+  --line: #C6D0CF;
+  --accent: #1D6784;
+  --accent-ink: #FFFFFF;
+  --port: #C23A2E;
+  --stbd: #17834A;
+  --warn: #955900;
+  --console: #1A2025;
+  --console-2: #252D33;
+  --console-edge: #38434A;
+  --console-ink: #C9D3D8;
+  --console-dim: #7D8A91;
+  --steel-1: #E4E9EC;
+  --steel-2: #8E9AA1;
+  --led-off: #2B3238;
+  --led-green: #3BF08A;
+  --led-red: #FF4034;
+  --led-amber: #FFAE22;
+  --bus: #7B3FB5;
+  --shadow: 0 1px 2px rgba(20, 32, 36, .08), 0 8px 24px rgba(20, 32, 36, .06);
+  --f-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --f-body: "Barlow", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ground: #0E1316; --surface: #151C20; --ink: #E2E9EB; --muted: #8C9AA0; --line: #28333A;
+    --accent: #5AAFD0; --accent-ink: #081419; --port: #F0645A; --stbd: #4CCB85; --warn: #F2A93B; --bus: #B98AF0;
+    --console: #11171B; --console-2: #1B2328; --console-edge: #2E3940;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ground: #0E1316; --surface: #151C20; --ink: #E2E9EB; --muted: #8C9AA0; --line: #28333A;
+  --accent: #5AAFD0; --accent-ink: #081419; --port: #F0645A; --stbd: #4CCB85; --warn: #F2A93B; --bus: #B98AF0;
+  --console: #11171B; --console-2: #1B2328; --console-edge: #2E3940;
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+}
+* { box-sizing: border-box; }
+html, body { background: var(--ground); }
+body { color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.45; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 16px; padding-block: 18px 40px; display: grid; gap: 16px; }
+h1, h2 { font-family: var(--f-display); font-weight: 600; margin: 0; text-wrap: balance; letter-spacing: .01em; }
+h1 { font-size: 30px; line-height: 1.05; }
+h2 { font-size: 18px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+button, .btn { font: 500 14px/1 var(--f-body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+button:hover, .btn:hover { border-color: var(--accent); }
+button:focus-visible, .btn:focus-within, input:focus-visible, select:focus-visible, .ev:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); min-width: 88px; justify-content: center; }
+
+/* header */
+.top { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: end; justify-content: space-between; }
+.top .sub { color: var(--muted); font-size: 14px; margin-top: 4px; }
+.top .sub b { color: var(--ink); font-weight: 500; }
+.loaders { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.loaders input[type=file] { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.drop-hint { color: var(--muted); font-size: 13px; }
+.status { font-size: 13px; color: var(--muted); }
+.status.err { color: var(--port); }
+
+/* main grid */
+.heads { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+@media (max-width: 760px) { .heads { grid-template-columns: minmax(0, 1fr); } }
+.head-card { background: var(--console); border-radius: 14px; padding: 10px; box-shadow: var(--shadow); border: 2px solid transparent; display: grid; gap: 6px; }
+.head-card[data-cmd="1"] { border-color: var(--led-red); }
+.head-cap { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 2px 6px 0; font-family: var(--f-display); letter-spacing: .08em; text-transform: uppercase; color: var(--console-ink); font-size: 15px; font-weight: 600; }
+.head-cap .badge { font: 600 11px/1 var(--f-body); letter-spacing: .08em; padding: 5px 8px; border-radius: 999px; border: 1px solid var(--console-edge); color: var(--console-dim); }
+.head-card[data-cmd="1"] .badge { color: #fff; background: var(--led-red); border-color: var(--led-red); }
+.head-card[data-ignored="1"] svg { opacity: .38; filter: grayscale(.6); }
+.head-card[data-ignored="1"] .badge { color: var(--console-dim); border-style: dashed; }
+.readouts3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: start; }
+@media (max-width: 880px) { .readouts3 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .readouts3 > .sys { grid-column: 1 / -1; } }
+@media (max-width: 520px) { .readouts3 { grid-template-columns: minmax(0, 1fr); } }
+.tl-key { font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.tl-key i { display: inline-block; width: 18px; height: 0; vertical-align: middle; margin-right: 5px; border-top: 2px solid var(--muted); }
+.tl-key i.dash { border-top-style: dashed; }
+.tl-key i.fill { height: 8px; border: 0; background: var(--muted); opacity: .35; }
+.head-card svg { display: block; width: 100%; height: auto; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: grid; gap: 12px; }
+.readouts { display: grid; gap: 12px; }
+.eng { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; align-items: baseline; }
+.eng-name { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; font-family: var(--f-display); font-size: 20px; font-weight: 600; letter-spacing: .02em; }
+.eng-name .dot { width: 10px; height: 10px; border-radius: 50%; }
+.k { color: var(--muted); font-size: 13px; }
+.v { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-size: 14px; }
+.thr-big { font-family: var(--f-display); font-size: 38px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+.thr-big small { font-size: 18px; color: var(--muted); font-weight: 500; }
+.chip { display: inline-block; font: 600 12px/1 var(--f-body); letter-spacing: .06em; text-transform: uppercase; padding: 5px 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.chip.neutral { color: var(--stbd); border-color: color-mix(in srgb, var(--stbd) 50%, transparent); }
+.chip.ahead, .chip.astern { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
+.chip.shifting { color: var(--warn); border-color: var(--warn); border-style: dashed; }
+.nodes { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 6px; }
+.node { font-size: 13px; display: flex; align-items: center; gap: 6px; }
+.node i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); flex: none; }
+.node.alive i { background: var(--stbd); }
+.node.lost i { background: var(--port); }
+.flags { font-size: 13px; color: var(--muted); display: grid; gap: 2px; }
+.flags b { color: var(--ink); font-weight: 500; }
+
+/* transport + timeline */
+.transport { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.clock { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-size: 22px; min-width: 9ch; }
+.clock small { font-size: 13px; color: var(--muted); }
+.transport label { font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+.loaders .sel { display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--f-body); color: var(--muted); }
+.transport select, .loaders select { font: 500 14px var(--f-body); padding: 6px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+.spacer { flex: 1; }
+#scrub { width: 100%; accent-color: var(--accent); }
+.tl-wrap { position: relative; }
+#timeline { display: block; width: 100%; height: 300px; cursor: crosshair; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); touch-action: none; }
+.kbd { font-size: 12px; color: var(--muted); }
+.kbd kbd { font-family: var(--f-mono); font-size: 11px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 1px 5px; background: var(--surface); }
+
+/* events */
+.ev-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+.filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.filters label { font-size: 13px; display: inline-flex; gap: 4px; align-items: center; padding: 4px 8px; border: 1px solid var(--line); border-radius: 999px; cursor: pointer; }
+.filters input { accent-color: var(--accent); margin: 0; }
+.evlist { max-height: 340px; overflow: auto; display: grid; border-top: 1px solid var(--line); }
+.ev { display: grid; grid-template-columns: 9ch 7.5em 1fr; gap: 10px; padding: 7px 6px; border-bottom: 1px solid var(--line); cursor: pointer; font-size: 14px; align-items: baseline; }
+.ev:focus-visible { outline-offset: -2px; }
+.ev:hover { background: color-mix(in srgb, var(--accent) 7%, transparent); }
+.ev.past { color: var(--muted); }
+.ev.current { background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--ink); }
+.ev .t { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-size: 13px; }
+.ev .kind { font: 600 11px/1.6 var(--f-body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.ev .kind.button { color: var(--warn); }
+.ev .kind.bus { color: var(--bus); }
+.tl-key i.bus { height: 8px; width: 4px; border: 0; background: var(--bus); }
+.tl-key i.bus.miss { background: none; border: 1.5px solid var(--bus); width: 6px; height: 8px; }
+.ev .kind.lever.port, .ev .kind.actuator.port, .ev .kind.throttle.port { color: var(--port); }
+.ev .kind.lever.stbd, .ev .kind.actuator.stbd, .ev .kind.throttle.stbd { color: var(--stbd); }
+@media (max-width: 560px) { .ev { grid-template-columns: 8ch 1fr; } .ev .kind { display: none; } }
+
+details.notes { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+details.notes summary { cursor: pointer; font-family: var(--f-display); font-size: 18px; font-weight: 600; letter-spacing: .02em; }
+details.notes p, details.notes li { max-width: 72ch; color: var(--ink); }
+details.notes code { font-family: var(--f-mono); font-size: 13px; }
+details.notes table { border-collapse: collapse; font-size: 14px; }
+details.notes td, details.notes th { border-bottom: 1px solid var(--line); padding: 4px 10px 4px 0; text-align: left; vertical-align: top; }
+.tbl { overflow-x: auto; }
+body.dragging .wrap { outline: 2px dashed var(--accent); outline-offset: -8px; border-radius: 12px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap" id="app">
+  <header class="top">
+    <div>
+      <h1>EC4 Lever Playback</h1>
+      <div class="sub" id="fileinfo">Loading…</div>
+    </div>
+    <div class="loaders">
+      <label class="btn" for="file">Open log file…<input type="file" id="file" accept=".log,.txt,text/plain"></label>
+      <button id="sample2" type="button" title="Sample: capture 3 excerpt, 2 Oct 2026: power-on, command at the main helm, shifts, labelled fast reversals">Sample</button>
+      <button id="sample1" type="button" title="capture1.log, 23 Sep 2026: main helm only">Capture 1</button>
+      <label class="btn" for="swap" title="Swap if lever byte 1 turns out to be the starboard engine"><input type="checkbox" id="swap"> Swap port / starboard</label>
+      <span class="drop-hint">or drop a .log anywhere on the page</span>
+      <span class="status" id="status" role="status" aria-live="polite"></span>
+    </div>
+  </header>
+
+  <section class="heads">
+    <div class="head-card" id="card1" aria-label="Main helm control head">
+      <div class="head-cap"><span>Main helm · node 1</span><span class="badge" id="badge1">–</span></div>
+      <svg id="head1" viewBox="0 0 640 390" role="img" aria-labelledby="head1-title">
+        <title id="head1-title">Main helm twin-lever control head: levers and four illuminated push-buttons (Engine port, Command, Warm/Sync, Engine starboard)</title>
+      </svg>
+    </div>
+    <div class="head-card" id="card2" aria-label="Flybridge control head">
+      <div class="head-cap"><span>Flybridge · node 2</span><span class="badge" id="badge2">–</span></div>
+      <svg id="head2" viewBox="0 0 640 390" role="img" aria-labelledby="head2-title">
+        <title id="head2-title">Flybridge twin-lever control head: levers and four illuminated push-buttons (Engine port, Command, Warm/Sync, Engine starboard)</title>
+      </svg>
+    </div>
+  </section>
+  <section class="readouts3">
+    <div class="panel eng" id="eng-port"></div>
+    <div class="panel eng" id="eng-stbd"></div>
+    <div class="panel sys">
+      <h2>System</h2>
+      <div class="flags" id="flags"></div>
+      <div class="nodes" id="nodes"></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="transport">
+      <button class="primary" id="play" type="button" aria-label="Play">Play</button>
+      <button id="prev" type="button" title="Previous event ( [ )">◀ Event</button>
+      <button id="next" type="button" title="Next event ( ] )">Event ▶</button>
+      <div class="clock" id="clock">0.00 <small>s</small></div>
+      <div class="spacer"></div>
+      <label for="speed">Speed
+        <select id="speed">
+          <option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option>
+          <option value="2">2×</option><option value="5">5×</option><option value="10">10×</option>
+        </select>
+      </label>
+      <label for="loop"><input type="checkbox" id="loop"> Loop</label>
+    </div>
+    <input type="range" id="scrub" min="0" max="1" step="any" value="0" aria-label="Playback position">
+    <div class="tl-key"><span><i class="fill"></i>helm in command (what the actuators follow)</span><span><i></i>main helm lever</span><span><i class="dash"></i>flybridge lever</span><span>Main / Fly rows: red command, amber warm-up, blue sync</span><span><i class="bus miss"></i>missed frame</span><span><i class="bus"></i>bus error logged by the sniffer (rev D.3)</span></div>
+    <div class="tl-wrap"><canvas id="timeline" aria-label="Timeline of lever, actuator and button activity. Click or drag to seek."></canvas></div>
+    <div class="kbd"><kbd>Space</kbd> play / pause · <kbd>←</kbd> <kbd>→</kbd> 1 s · <kbd>Shift</kbd>+arrows 10 s · <kbd>[</kbd> <kbd>]</kbd> previous / next event · click the timeline to seek</div>
+  </section>
+
+  <section class="panel">
+    <div class="ev-head">
+      <h2>Events</h2>
+      <div class="filters" id="filters"></div>
+    </div>
+    <div class="evlist" id="evlist" role="list" tabindex="0" aria-label="Events. Arrow keys move, Enter seeks."></div>
+  </section>
+
+  <details class="notes">
+    <summary>How the log is decoded</summary>
+    <p>The bus is CANopen-like at 125 kbit/s, 11-bit IDs. Full decode: <code>docs/protocol.md</code>. Built-in data: the sample (capture 3 excerpt, 2 Oct 2026) and capture 1 (23 Sep 2026, main helm).</p>
+    <div class="tbl"><table>
+      <tr><th>ID</th><th>Source</th><th>Decode</th></tr>
+      <tr><td class="mono">0x181 / 0x282</td><td>Node 1 main helm / node 2 flybridge, 150 ms</td><td>byte 0 flags; bytes 1 and 4 gear (<code>FF</code> ahead, <code>00</code> neutral, <code>01</code> astern); bytes 2 and 5 throttle 0 to 100 %. Both heads send their levers all the time, in command or not.</td></tr>
+      <tr><td class="mono">byte 0</td><td>Both heads</td><td><code>40</code> always set; <code>01</code> this head has command; <code>02</code> warm-up; <code>08</code> synchronisation. Warm-up and sync are system states, mirrored by the other head 150 ms later.</td></tr>
+      <tr><td class="mono">0x384 / 0x485</td><td>Nodes 4 and 5, actuators, 153.6 ms</td><td><code>C0</code> neutral, <code>4C</code> shifting, <code>44</code> ahead engaged, <code>48</code> astern engaged, <code>40</code> booting</td></tr>
+      <tr><td class="mono">0x7nn</td><td>Heartbeats</td><td><code>00</code> boot-up (actuators only), <code>05</code> operational</td></tr>
+    </table></div>
+    <ul>
+      <li><b>Which head counts:</b> the head in command has a red border; the gearboxes follow its levers. The other head is dimmed: its levers are sent but ignored.</li>
+      <li><b>Synchronisation:</b> the head in command writes its right lever into both the port and starboard bytes.</li>
+      <li><b>Buttons are not on the bus.</b> A press is drawn when its flag bit changes, as a 1.5 s hold ending at that frame (the manual specifies 1.5 s holds). The mirror 150 ms later is not a press.</li>
+      <li><b>LEDs are reconstructed:</b> Command red when the head has command; Warm/Sync blinking in warm-up, steady in sync; Engine steady when the head has command and that actuator is in neutral.</li>
+      <li><b>Lever angle</b> is rebuilt from gear and throttle: neutral upright, the gear detent at 20 % of travel, full throttle at the end stop.</li>
+      <li><b>Port and starboard:</b> bytes 1 and 2 and node 4 are port on the test boat. The swap switch is there for other installations.</li>
+      <li>Rev C firmware logs (capture 1) start with a compressed half second of timestamps; it is shaded on the timeline.</li>
+    </ul>
+  </details>
+</div>
+
+<script type="text/plain" id="sample-log">/*__SAMPLE__*/</script>
+<script type="text/plain" id="sample-log-1">/*__SAMPLE1__*/</script>
+<script>
+/*__DECODE__*/
+</script>
+<script>
+(() => {
+  'use strict';
+  const D = window.EC4Decode;
+  const $ = (id) => document.getElementById(id);
+  const SVGNS = 'http://www.w3.org/2000/svg';
+  const MAX_DEG = 70;           // lever end stop, degrees either side of upright
+  let model = null, rawText = '', fileName = '';
+  let t = 0, playing = false, speed = 1, lastFrame = null;
+  const filters = { lever: true, actuator: true, throttle: true, button: true, state: true, node: false, bus: true, note: true };
+
+  const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+  // ------------------------------------------------------------------ SVG head
+  const rad = (d) => d * Math.PI / 180;
+  const Q = { port: { cx: 170, cy: 322 }, stbd: { cx: 470, cy: 322 } };
+  const R = 132;
+
+  function arcPath(cx, cy, r, a0, a1) {
+    const p0 = [cx + r * Math.sin(rad(a0)), cy - r * Math.cos(rad(a0))];
+    const p1 = [cx + r * Math.sin(rad(a1)), cy - r * Math.cos(rad(a1))];
+    const large = Math.abs(a1 - a0) > 180 ? 1 : 0;
+    const sweep = a1 > a0 ? 1 : 0;
+    return `M${p0[0].toFixed(2)} ${p0[1].toFixed(2)} A${r} ${r} 0 ${large} ${sweep} ${p1[0].toFixed(2)} ${p1[1].toFixed(2)}`;
+  }
+  const posToDeg = (p) => p * MAX_DEG;
+
+  const LABEL = { port: 'Port', stbd: 'Starboard' };
+  function makeHead(head, pfx) {
+  const el = (tag, attrs, parent) => {
+    const n = document.createElementNS(SVGNS, tag);
+    for (const k in attrs) n.setAttribute(k, attrs[k]);
+    (parent || head).appendChild(n);
+    return n;
+  };
+  const refs = {};
+  function buildHead() {
+    const defs = el('defs', {});
+    defs.innerHTML = `
+      <linearGradient id="${pfx}plate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--console-2)"/><stop offset="1" stop-color="var(--console)"/></linearGradient>
+      <linearGradient id="${pfx}shaft" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="var(--steel-2)"/><stop offset=".45" stop-color="var(--steel-1)"/><stop offset="1" stop-color="var(--steel-2)"/></linearGradient>
+      <radialGradient id="${pfx}boss" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#5B666D"/><stop offset="1" stop-color="#20272C"/></radialGradient>
+      <radialGradient id="${pfx}btnface" cx=".4" cy=".35" r=".75"><stop offset="0" stop-color="#3C474E"/><stop offset="1" stop-color="#1C2227"/></radialGradient>
+      <filter id="${pfx}glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
+    el('rect', { x: 6, y: 6, width: 628, height: 378, rx: 22, fill: `url(#${pfx}plate)`, stroke: 'var(--console-edge)', 'stroke-width': 1.5 });
+    // top strip
+    el('rect', { x: 26, y: 22, width: 588, height: 96, rx: 12, fill: 'var(--console)', stroke: 'var(--console-edge)' });
+
+    const ledDefs = [
+      { key: 'enginePort', x: 92, color: 'var(--led-green)', label: 'ENGINE P' },
+      { key: 'command', x: 262, color: 'var(--led-red)', label: 'COMMAND' },
+      { key: 'warm', x: 378, color: 'var(--led-amber)', label: 'WARM / SYNC' },
+      { key: 'engineStbd', x: 548, color: 'var(--led-green)', label: 'ENGINE S' },
+    ];
+    refs.led = {};
+    for (const L of ledDefs) {
+      const g = el('g', { 'data-led': L.key });
+      el('circle', { cx: L.x, cy: 46, r: 9, fill: 'var(--led-off)', stroke: '#0B0F12', 'stroke-width': 2 }, g);
+      const lit = el('circle', { cx: L.x, cy: 46, r: 7, fill: L.color, filter: `url(#${pfx}glow)`, opacity: 0 }, g);
+      el('text', { x: L.x, y: 104, 'text-anchor': 'middle', 'font-family': 'var(--f-display)', 'font-size': 12, 'letter-spacing': '1.5', fill: 'var(--console-dim)' }, g).textContent = L.label;
+      refs.led[L.key] = { g, lit };
+    }
+    const btnDefs = [{ key: 'enginePort', x: 92, label: 'P' }, { key: 'command', x: 262, label: 'CMD' }, { key: 'warm', x: 378, label: 'W/S' }, { key: 'engineStbd', x: 548, label: 'S' }];
+    refs.btn = {};
+    for (const B of btnDefs) {
+      const g = el('g', { 'data-btn': B.key });
+      const ring = el('circle', { cx: B.x, cy: 76, r: 19, fill: 'none', stroke: 'var(--led-amber)', 'stroke-width': 3, 'stroke-dasharray': '4 3', opacity: 0 }, g);
+      const face = el('circle', { cx: B.x, cy: 76, r: 14, fill: `url(#${pfx}btnface)`, stroke: '#0B0F12', 'stroke-width': 2 }, g);
+      el('text', { x: B.x, y: 80, 'text-anchor': 'middle', 'font-family': 'var(--f-display)', 'font-size': 10, fill: 'var(--console-ink)' }, g).textContent = B.label;
+      refs.btn[B.key] = { g, ring, face, cx: B.x };
+    }
+    // centre legend
+
+    refs.q = {};
+    for (const sd of ['port', 'stbd']) {
+      const { cx, cy } = Q[sd];
+      const g = el('g', { 'data-quadrant': sd });
+      const col = sd === 'port' ? 'var(--port)' : 'var(--stbd)';
+      // scale track
+      el('path', { d: arcPath(cx, cy, R, -MAX_DEG, MAX_DEG), fill: 'none', stroke: 'var(--console-edge)', 'stroke-width': 14, 'stroke-linecap': 'round' }, g);
+      // neutral zone
+      el('path', { d: arcPath(cx, cy, R, -MAX_DEG * D.DETENT, MAX_DEG * D.DETENT), fill: 'none', stroke: '#3E4A51', 'stroke-width': 14 }, g);
+      // live throttle band
+      const band = el('path', { d: '', fill: 'none', stroke: col, 'stroke-width': 8, 'stroke-linecap': 'round', opacity: .9 }, g);
+      // ticks: detents and 25/50/75/100 % either side
+      const ticks = [0, D.DETENT, D.DETENT + (1 - D.DETENT) * .25, D.DETENT + (1 - D.DETENT) * .5, D.DETENT + (1 - D.DETENT) * .75, 1];
+      for (const s of [-1, 1]) for (const p of ticks) {
+        if (p === 0 && s === -1) continue;
+        const a = rad(s * p * MAX_DEG), r0 = R + 11, r1 = R + (p === D.DETENT || p === 1 || p === 0 ? 22 : 17);
+        el('line', { x1: cx + r0 * Math.sin(a), y1: cy - r0 * Math.cos(a), x2: cx + r1 * Math.sin(a), y2: cy - r1 * Math.cos(a), stroke: 'var(--console-dim)', 'stroke-width': p === 0 ? 3 : 1.5 }, g);
+      }
+      const lab = (txt, deg, r, size) => {
+        const a = rad(deg);
+        const tx = el('text', { x: cx + r * Math.sin(a), y: cy - r * Math.cos(a) + 4, 'text-anchor': 'middle', 'font-family': 'var(--f-display)', 'font-size': size || 12, 'letter-spacing': '1', fill: 'var(--console-dim)' }, g);
+        tx.textContent = txt;
+      };
+      lab('N', 0, R + 34, 14);
+      lab('AHD', MAX_DEG * D.DETENT + 3, R + 34);
+      lab('AST', -MAX_DEG * D.DETENT - 3, R + 34);
+      // lever
+      const lever = el('g', {}, g);
+      el('rect', { x: cx - 6, y: cy - 118, width: 12, height: 118, rx: 5, fill: `url(#${pfx}shaft)`, stroke: '#11161A', 'stroke-width': 1 }, lever);
+      el('rect', { x: cx - 22, y: cy - 136, width: 44, height: 26, rx: 13, fill: col, stroke: '#0B0F12', 'stroke-width': 2 }, lever);
+      el('rect', { x: cx - 16, y: cy - 131, width: 32, height: 6, rx: 3, fill: '#FFFFFF', opacity: .22 }, lever);
+      el('circle', { cx, cy, r: 30, fill: `url(#${pfx}boss)`, stroke: '#0B0F12', 'stroke-width': 2 }, g);
+      el('circle', { cx, cy, r: 6, fill: '#11161A' }, g);
+      // captions
+      el('text', { x: cx, y: cy + 52, 'text-anchor': 'middle', 'font-family': 'var(--f-display)', 'font-size': 15, 'font-weight': 600, 'letter-spacing': '2', fill: col }, g).textContent = sd === 'port' ? 'PORT' : 'STARBOARD';
+      const readout = el('text', { x: cx, y: cy + 8, 'text-anchor': 'middle', 'font-family': 'var(--f-mono)', 'font-size': 12, fill: 'var(--console-ink)', 'paint-order': 'stroke', stroke: 'var(--console)', 'stroke-width': 0 }, g);
+      refs.q[sd] = { lever, band, readout, cx, cy };
+    }
+  }
+
+  const SHORT = { 'ENGINE P': 'ENG P', 'ENGINE S': 'ENG S', 'WARM / SYNC': 'W/S', 'COMMAND': 'CMD', 'MAIN HELM · NODE 1': 'MAIN', 'FLYBRIDGE · NODE 2': 'FLY', 'STARBOARD': 'STBD' };
+  function prepHeadText() {
+    head.querySelectorAll('text').forEach((tx) => {
+      tx.dataset.fs = tx.getAttribute('font-size') || '12';
+      tx.dataset.full = tx.textContent;
+      tx.dataset.ls = tx.getAttribute('letter-spacing') || '0';
+    });
+    for (const k of Object.keys(refs.btn)) refs.btn[k].g.querySelector('text').dataset.inbtn = '1';
+  }
+  let lastK = null;  // per head
+  function fitHeadText() {
+    const wpx = head.getBoundingClientRect().width;
+    if (!wpx) return;
+    const scale = wpx / 640;
+    const k = scale < 0.85 ? Math.min(1.75, 0.85 / scale) : 1;
+    if (lastK !== null && Math.abs(k - lastK) < 0.02) return;
+    lastK = k;
+    const small = k > 1.15;
+    head.querySelectorAll('text[data-fs]').forEach((tx) => {
+      tx.setAttribute('font-size', (+tx.dataset.fs * k).toFixed(1));
+      tx.setAttribute('letter-spacing', small ? '0.5' : tx.dataset.ls);
+      tx.textContent = small && SHORT[tx.dataset.full] ? SHORT[tx.dataset.full] : tx.dataset.full;
+      if (tx.dataset.inbtn) tx.setAttribute('opacity', small ? 0 : 1);
+    });
+  }
+
+  // ------------------------------------------------------------------ rendering
+
+  function renderHead(s) {
+    for (const sd of ['port', 'stbd']) {
+      const q = refs.q[sd], L = s[sd];
+      const deg = L ? posToDeg(L.pos) : 0;
+      q.lever.setAttribute('transform', `rotate(${deg.toFixed(2)} ${q.cx} ${q.cy})`);
+      q.lever.dataset.deg = deg.toFixed(2);
+      const det = MAX_DEG * D.DETENT;
+      if (L && Math.abs(deg) > det + 0.5) {
+        const sgn = Math.sign(deg);
+        q.band.setAttribute('d', arcPath(q.cx, q.cy, R, sgn * det, deg));
+      } else q.band.setAttribute('d', '');
+      q.readout.textContent = '';
+    }
+    const blinkOn = Math.floor(t * 2) % 2 === 0;  // 1 Hz blink tied to log time
+    const led = s.led;
+    const set = (k, on) => { refs.led[k].lit.setAttribute('opacity', on ? 1 : 0); refs.led[k].g.dataset.on = on ? '1' : '0'; };
+    set('command', led.command);
+    set('enginePort', led.enginePort === 'on' || (led.enginePort === 'blink' && blinkOn));
+    set('engineStbd', led.engineStbd === 'on' || (led.engineStbd === 'blink' && blinkOn));
+    set('warm', led.warm === 'blink' ? blinkOn : led.warm === 'on');
+    refs.led.warm.g.dataset.mode = led.warm;
+    for (const k of Object.keys(refs.btn)) {
+      const b = refs.btn[k], pressed = !!s.buttons[k];
+      b.ring.setAttribute('opacity', pressed ? 1 : 0);
+      b.face.setAttribute('transform', pressed ? `translate(0 1.5)` : '');
+      b.g.dataset.pressed = pressed ? '1' : '0';
+    }
+  }
+  buildHead(); prepHeadText(); fitHeadText();
+  return { render: renderHead, fit: fitHeadText, refs };
+  }
+
+  function engineCard(sd, s, s1, s2) {
+    const L = s[sd], A = s.act[sd];
+    const lv = (x) => (x && x[sd] ? (x[sd].gear ? `${x[sd].gear > 0 ? 'AHD' : 'AST'} ${x[sd].thr} %` : 'N') : '–');
+    const d = s1[sd] && s2[sd] && s1[sd].gear === s2[sd].gear && s1[sd].gear !== 0 ? ` · Δ ${Math.abs(s1[sd].thr - s2[sd].thr)} %` : '';
+    const col = sd === 'port' ? 'var(--port)' : 'var(--stbd)';
+    const st = A ? A.state : 'unknown';
+    const gear = L ? (L.gear > 0 ? 'Ahead' : L.gear < 0 ? 'Astern' : 'Neutral') : '–';
+    return `<div class="eng-name"><span class="dot" style="background:${col}"></span>${LABEL[sd]} <span class="k" style="font-family:var(--f-body);font-weight:400;letter-spacing:0">from ${s.commander === 2 ? 'flybridge' : s.commander === 1 ? 'main helm' : 'nobody (no command)'}</span></div>
+      <div class="k">Demand</div><div class="thr-big" data-field="thr">${L ? `${L.thr}<small> %</small>` : '–'}</div>
+      <div class="k">Lever gear</div><div class="v" data-field="gear">${gear}</div>
+      <div class="k">Helms</div><div class="v" data-field="helms">main ${lv(s1)} · fly ${lv(s2)}${d}</div>
+      <div class="k">Actuator</div><div><span class="chip ${st}" data-field="act">${st === 'ahead' || st === 'astern' ? 'engaged ' + st : st}</span> <span class="v k">${A ? '0x' + A.raw.toString(16).toUpperCase().padStart(2, '0') : ''}</span></div>`;
+  }
+
+  function renderPanels(s, s1, s2) {
+    $('eng-port').innerHTML = engineCard('port', s, s1, s2);
+    $('eng-stbd').innerHTML = engineCard('stbd', s, s1, s2);
+    const hx = (v) => (v === null || v === undefined ? '–' : '0x' + v.toString(16).toUpperCase().padStart(2, '0'));
+    const fl = { [s.station]: s.flags, [s.station === 1 ? 2 : 1]: s.otherFlags };
+    const line = (n, name) => { const f = fl[n], ok = f !== null && f !== undefined;
+      return `<div>${name} <b class="mono">${hx(f)}</b> · command <b>${ok && f & 1 ? 'yes' : 'no'}</b></div>`; };
+    const f = s.flags, sys = f !== null && f !== undefined;
+    $('flags').innerHTML = line(1, 'Main helm 0x181') + line(2, 'Flybridge 0x282') +
+      (() => { let n = 0, n4 = 0; for (const m of model.missed) if (m.t0 <= t) { n += m.n; if (m.id === 0x384 || m.id === 0x704) n4 += m.n; }
+               let e = 0; for (const b of model.busErr) if (b.t <= t) e += b.n;
+               return `<div>Bus · missed frames <b>${n}</b>${n ? ` (port actuator ${n4})` : ''}${model.busErr.length ? ` · logged errors <b>${e}</b>` : ''}</div>`; })() +
+      `<div>System · warm-up <b>${sys && f & 2 ? 'on' : 'off'}</b> · sync <b>${sys && f & 8 ? 'on' : 'off'}</b></div>
+      <div>Raw 0x181 <b class="mono">${s1.raw || '–'}</b></div>
+      <div>Raw 0x282 <b class="mono">${s2.raw || '–'}</b></div>`;
+    const names = { 1: 'Main helm', 2: 'Flybridge', 4: 'Actuator 4', 5: 'Actuator 5' };
+    $('nodes').innerHTML = Object.keys(model.hb).sort((a, b) => a - b).map((n) => {
+      const h = s.hb[n];
+      const cls = !h || !h.seen ? '' : h.alive ? 'alive' : 'lost';
+      const txt = !h || !h.seen ? 'not seen yet' : h.alive ? h.state : 'lost';
+      return `<div class="node ${cls}" data-node="${n}" title="Node ${n}: ${txt}"><i></i>${names[n] || 'Node ' + n}</div>`;
+    }).join('');
+  }
+
+  // ------------------------------------------------------------------ timeline
+  const cv = $('timeline');
+  let tlGeom = null;
+  function runs(arr, keyFn, tEnd) {
+    // merge consecutive samples with the same key into [t0, t1, key] runs
+    const out = [];
+    for (let i = 0; i < arr.length; i++) {
+      const k = keyFn(arr[i]);
+      const last = out[out.length - 1];
+      if (last && last.k === k) continue;
+      if (last) last.t1 = arr[i].t;
+      out.push({ t0: arr[i].t, t1: tEnd, k });
+    }
+    return out;
+  }
+  function drawTimeline() {
+    if (!model) return;
+    const dpr = window.devicePixelRatio || 1;
+    const w = cv.clientWidth, h = cv.clientHeight;
+    if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+    const c = cv.getContext('2d');
+    c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    c.clearRect(0, 0, w, h);
+    const colInk = css('--ink'), colMuted = css('--muted'), colLine = css('--line'), colPort = css('--port'), colStbd = css('--stbd'), colWarn = css('--warn'), colAcc = css('--accent'), colRed = css('--led-red');
+    const narrow = w < 520;
+    const gl = narrow ? 48 : 84, gr = 10;
+    const x = (tt) => gl + (tt - model.t0) / Math.max(1e-6, model.t1 - model.t0) * (w - gl - gr);
+    const rows = [
+      { key: 'flags1', h: 20, label: narrow ? 'Main' : 'Main helm' },
+      { key: 'flags2', h: 20, label: narrow ? 'Fly' : 'Flybridge' },
+      { key: 'port', h: 52, label: narrow ? 'Port' : 'Port lever' },
+      { key: 'actport', h: 10, label: narrow ? 'P act' : 'Port act.' },
+      { key: 'stbd', h: 52, label: narrow ? 'Stbd' : 'Stbd lever' },
+      { key: 'actstbd', h: 10, label: narrow ? 'S act' : 'Stbd act.' },
+      { key: 'btn', h: 18, label: narrow ? 'Btn' : 'Buttons' },
+      { key: 'bus', h: 14, label: narrow ? 'Bus' : 'Bus errors' },
+    ];
+    let y = 6; for (const r of rows) { r.y = y; y += r.h + 8; }
+    const axisY = y;
+    tlGeom = { gl, gr, w, x };
+    const fBody = css('--f-body') || 'sans-serif', fMono = css('--f-mono') || 'monospace';
+    c.font = `500 11px ${fBody}`;
+    c.textBaseline = 'middle';
+    if (model.backlogEnd) { c.fillStyle = colLine; c.globalAlpha = .5; c.fillRect(x(model.t0), 2, x(model.backlogEnd) - x(model.t0), axisY - 4); c.globalAlpha = 1; }
+    for (const r of rows) { c.fillStyle = colMuted; c.fillText(r.label, 4, r.y + (r.key === 'port' || r.key === 'stbd' ? r.h / 2 : r.h / 2)); }
+    const lv = model.cmdLever;
+    // station flags: command (red, top half); warm-up (amber) or sync (accent), bottom half
+    for (const n of [1, 2]) {
+      const fr = rows[n - 1], arr = model.st[n];
+      for (const q of runs(arr, (a) => a.flags & 1, model.t1)) if (q.k) { c.fillStyle = colRed; c.fillRect(x(q.t0), fr.y + 2, Math.max(1, x(q.t1) - x(q.t0)), 7); }
+      for (const q of runs(arr, (a) => (a.flags & 8 ? 2 : a.flags & 2 ? 1 : 0), model.t1)) if (q.k) { c.fillStyle = q.k === 2 ? colAcc : colWarn; c.fillRect(x(q.t0), fr.y + 11, Math.max(1, x(q.t1) - x(q.t0)), 7); }
+    }
+    // lever traces
+    for (const sd of ['port', 'stbd']) {
+      const r = rows.find((q) => q.key === sd), mid = r.y + r.h / 2, amp = r.h / 2 - 2;
+      c.strokeStyle = colMuted; c.globalAlpha = .5; c.lineWidth = 1;
+      c.beginPath(); c.moveTo(gl, mid); c.lineTo(w - gr, mid); c.stroke();
+      c.setLineDash([2, 3]);
+      for (const s of [-1, 1]) { const yy = mid - s * amp * D.DETENT; c.beginPath(); c.moveTo(gl, yy); c.lineTo(w - gr, yy); c.stroke(); }
+      c.setLineDash([]); c.globalAlpha = 1;
+      const col = sd === 'port' ? colPort : colStbd;
+      if (lv.length) {
+        c.fillStyle = col; c.globalAlpha = .18; c.beginPath(); c.moveTo(x(lv[0].t), mid);
+        for (const a of lv) c.lineTo(x(a.t), mid - a[sd].pos * amp);
+        c.lineTo(x(lv[lv.length - 1].t), mid); c.closePath(); c.fill(); c.globalAlpha = 1;
+      }
+      for (const n of [1, 2]) {
+        const arr = model.st[n];
+        if (!arr.length) continue;
+        c.strokeStyle = col; c.lineWidth = n === 1 ? 1.5 : 1.25; c.setLineDash(n === 1 ? [] : [4, 3]);
+        c.beginPath();
+        arr.forEach((a, i) => { const yy = mid - a[sd].pos * amp; i && a.t - arr[i - 1].t < 1.6 ? c.lineTo(x(a.t), yy) : c.moveTo(x(a.t), yy); });
+        c.stroke(); c.setLineDash([]);
+      }
+      if (!narrow) {
+        c.fillStyle = colMuted; c.font = `500 10px ${fMono}`; c.textAlign = 'right';
+        c.fillText('AHD', gl - 6, r.y + 6); c.fillText('AST', gl - 6, r.y + r.h - 5);
+        c.textAlign = 'left'; c.font = `500 11px ${fBody}`;
+      }
+    }
+    // actuator bands
+    for (const sd of ['port', 'stbd']) {
+      const r = rows.find((q) => q.key === 'act' + sd);
+      for (const q of runs(model.act[sd], (a) => a.state, model.t1)) {
+        const x0 = x(q.t0), x1 = x(q.t1);
+        if (q.k === 'neutral') { c.fillStyle = colMuted; c.globalAlpha = .35; }
+        else c.fillStyle = q.k === 'shifting' ? colWarn : q.k === 'unknown' ? colLine : colAcc;
+        c.fillRect(x0, r.y, Math.max(1, x1 - x0), r.h); c.globalAlpha = 1;
+        if (q.k === 'astern') { c.fillStyle = css('--surface'); c.globalAlpha = .45; for (let xx = x0 + 2; xx < x1; xx += 5) c.fillRect(xx, r.y, 1.5, r.h); c.globalAlpha = 1; }
+      }
+    }
+    // inferred button holds
+    const br = rows.find((q) => q.key === 'btn');
+    for (const b of model.buttons) {
+      c.fillStyle = b.name === 'command' ? colRed : colWarn;
+      c.globalAlpha = .35; c.fillRect(x(b.t0), br.y + 2, Math.max(2, x(b.t1) - x(b.t0)), br.h - 4); c.globalAlpha = 1;
+      c.fillRect(x(b.t1) - 1, br.y, 2, br.h);
+    }
+    // bus: missed frames (outlined, height by count) and logged bus errors (solid)
+    const bu = rows.find((q) => q.key === 'bus'), colBus = css('--bus');
+    c.strokeStyle = colBus; c.lineWidth = 1.25;
+    for (const m of model.missed) {
+      const x0 = x(m.t0), x1 = Math.max(x0 + 3, x(m.t1)), hh = Math.min(bu.h, 5 + 3 * m.n);
+      c.strokeRect(x0, bu.y + bu.h - hh + .5, x1 - x0, hh - 1);
+    }
+    c.fillStyle = colBus;
+    for (const b of model.busErr) c.fillRect(x(b.t) - 1.5, bu.y, 3, bu.h);
+    // time axis
+    c.fillStyle = colMuted; c.strokeStyle = colMuted; c.lineWidth = 1;
+    c.beginPath(); c.moveTo(gl, axisY); c.lineTo(w - gr, axisY); c.globalAlpha = .5; c.stroke(); c.globalAlpha = 1;
+    const span = model.t1 - model.t0, stepChoices = [1, 2, 5, 10, 20, 30, 60, 120, 300, 600, 1200, 3600];
+    const step = stepChoices.find((s) => (w - gl - gr) / (span / s) >= (narrow ? 54 : 64)) || 3600;
+    c.textAlign = 'center';
+    for (let tt = Math.ceil(model.t0 / step) * step; tt <= model.t1; tt += step) {
+      const xx = x(tt); c.beginPath(); c.moveTo(xx, axisY); c.lineTo(xx, axisY + 4); c.stroke();
+      if (xx > w - gr - 18) { c.textAlign = 'right'; c.fillText(tt.toFixed(0) + ' s', w - 2, axisY + 13); c.textAlign = 'center'; }
+      else c.fillText(tt.toFixed(0) + ' s', xx, axisY + 13);
+    }
+    c.textAlign = 'left';
+    // playhead
+    const px = x(t);
+    c.strokeStyle = colInk; c.lineWidth = 1.5; c.beginPath(); c.moveTo(px, 2); c.lineTo(px, axisY); c.stroke();
+    c.fillStyle = colInk; c.beginPath(); c.moveTo(px - 5, 0); c.lineTo(px + 5, 0); c.lineTo(px, 6); c.closePath(); c.fill();
+  }
+
+  function seekFromEvent(e) {
+    if (!model || !tlGeom) return;
+    const rect = cv.getBoundingClientRect();
+    const xx = e.clientX - rect.left - cv.clientLeft;
+    const f = (xx - tlGeom.gl) / (tlGeom.w - tlGeom.gl - tlGeom.gr);
+    seek(model.t0 + Math.max(0, Math.min(1, f)) * (model.t1 - model.t0));
+  }
+  let dragging = false;
+  cv.addEventListener('pointerdown', (e) => { dragging = true; cv.setPointerCapture(e.pointerId); seekFromEvent(e); });
+  cv.addEventListener('pointermove', (e) => { if (dragging) seekFromEvent(e); });
+  cv.addEventListener('pointerup', () => { dragging = false; });
+  cv.addEventListener('pointercancel', () => { dragging = false; });
+
+  // ------------------------------------------------------------------ events
+  const KIND_LABEL = { lever: 'Lever', actuator: 'Actuator', throttle: 'Throttle', button: 'Button', state: 'State', node: 'Node', bus: 'Bus', note: 'Note' };
+  function buildFilters() {
+    $('filters').innerHTML = Object.keys(KIND_LABEL).map((k) =>
+      `<label for="f-${k}"><input type="checkbox" id="f-${k}" data-kind="${k}" ${filters[k] ? 'checked' : ''}> ${KIND_LABEL[k]}</label>`).join('');
+    $('filters').addEventListener('change', (e) => {
+      const k = e.target.dataset.kind; if (!k) return;
+      filters[k] = e.target.checked; renderEvents(); updateEventHighlight(true);
+    });
+  }
+  function renderEvents() {
+    const list = $('evlist');
+    list.innerHTML = model.events.map((e, i) => filters[e.kind] ?
+      `<div class="ev" role="listitem" tabindex="-1" data-i="${i}" data-t="${e.t}"><span class="t">${e.t.toFixed(2)} s</span><span class="kind ${e.kind} ${e.side || ''}">${KIND_LABEL[e.kind]}</span><span>${escapeHtml(e.text)}</span></div>` : '').join('');
+  }
+  const escapeHtml = (s) => s.replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+  $('evlist').addEventListener('click', (e) => { const row = e.target.closest('.ev'); if (row) seek(+row.dataset.t); });
+  $('evlist').addEventListener('keydown', (e) => {
+    const rows = [...$('evlist').children];
+    if (!rows.length) return;
+    const cur = e.target.closest('.ev');
+    if (e.key === 'Enter' && cur) { seek(+cur.dataset.t); return; }
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      let i = cur ? rows.indexOf(cur) : rows.indexOf(lastCurrent);
+      i = Math.max(0, Math.min(rows.length - 1, i + (e.key === 'ArrowDown' ? 1 : -1)));
+      rows[i].focus();
+    }
+  });
+  $('evlist').addEventListener('focus', (e) => {
+    // entering from outside: land on the current row; coming back out of a row (Shift+Tab): stay on the list so the next Shift+Tab leaves
+    if (e.target.id !== 'evlist' || (e.relatedTarget && $('evlist').contains(e.relatedTarget))) return;
+    const row = lastCurrent || $('evlist').firstElementChild;
+    if (row) row.focus();
+  });
+  let lastCurrent = null;
+  function updateEventHighlight(force) {
+    const rows = $('evlist').children;
+    let cur = null;
+    for (const r of rows) {
+      const past = +r.dataset.t <= t + 1e-6;
+      r.classList.toggle('past', past);
+      if (past) cur = r;
+    }
+    if (cur !== lastCurrent || force) {
+      if (lastCurrent) lastCurrent.classList.remove('current');
+      if (cur) {
+        cur.classList.add('current');
+        if (playing) {
+          const box = $('evlist');
+          const top = cur.offsetTop - box.offsetTop;
+          if (top < box.scrollTop || top > box.scrollTop + box.clientHeight - 40) box.scrollTop = top - box.clientHeight / 2;
+        }
+      }
+      lastCurrent = cur;
+    }
+  }
+  function jumpEvent(dir) {
+    if (!model) return;
+    const evs = model.events.filter((e) => filters[e.kind]);
+    if (!evs.length) return;
+    if (dir > 0) { const n = evs.find((e) => e.t > t + 0.005); if (n) seek(n.t); }
+    else { const p = [...evs].reverse().find((e) => e.t < t - 0.005); if (p) seek(p.t); }
+  }
+
+  // ------------------------------------------------------------------ transport
+  function render() {
+    if (!model) return;
+    const s = D.stateAt(model, t, 'auto'), s1 = D.stateAt(model, t, 1), s2 = D.stateAt(model, t, 2);
+    for (const [n, sn] of [[1, s1], [2, s2]]) {
+      heads[n].render(sn);
+      const f = sn.flags, has = f !== null && f !== undefined;
+      const cmd = has && !!(f & 1);
+      const card = $('card' + n);
+      const ignored = has && !cmd && !!s.commander;
+      card.dataset.cmd = cmd ? '1' : '0'; 
+      card.dataset.ignored = ignored ? '1' : '0';
+      $('badge' + n).textContent = !has ? 'no frames' : cmd ? 'In command' : s.commander ? 'Not in command: levers ignored' : 'No command';
+    }
+    renderPanels(s, s1, s2);
+    $('clock').innerHTML = `${t.toFixed(2)} <small>s</small>`;
+    const sc = $('scrub'); if (!scrubDrag) sc.value = t;
+    drawTimeline();
+    updateEventHighlight(false);
+    document.documentElement.dataset.playT = t.toFixed(3);
+  }
+  function seek(tt) { if (!model) return; t = Math.max(model.t0, Math.min(model.t1, tt)); render(); }
+  function setPlaying(p) {
+    playing = p && !!model;
+    const b = $('play'); b.textContent = playing ? 'Pause' : 'Play'; b.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+    lastFrame = null;
+    if (playing) { if (t >= model.t1 - 1e-3) t = model.t0; requestAnimationFrame(tick); }
+  }
+  function tick(ts) {
+    if (!playing) return;
+    if (lastFrame !== null) {
+      t += (ts - lastFrame) / 1000 * speed;
+      if (t >= model.t1) { if ($('loop').checked) t = model.t0; else { t = model.t1; render(); setPlaying(false); return; } }
+    }
+    lastFrame = ts;
+    render();
+    requestAnimationFrame(tick);
+  }
+  $('play').addEventListener('click', () => setPlaying(!playing));
+  $('prev').addEventListener('click', () => jumpEvent(-1));
+  $('next').addEventListener('click', () => jumpEvent(1));
+  $('speed').addEventListener('change', (e) => { speed = +e.target.value; });
+  let scrubDrag = false;
+  $('scrub').addEventListener('pointerdown', () => { scrubDrag = true; });
+  window.addEventListener('pointerup', () => { scrubDrag = false; });
+  $('scrub').addEventListener('input', (e) => seek(+e.target.value));
+  // mouse users: return focus to the page after a control changes so shortcuts keep working
+  let pointerInput = false;
+  document.addEventListener('pointerdown', () => { pointerInput = true; }, true);
+  document.addEventListener('keydown', () => { pointerInput = false; }, true);
+  document.addEventListener('change', (e) => { if (pointerInput && e.target.matches('input[type=checkbox], select')) e.target.blur(); });
+  document.addEventListener('keydown', (e) => {
+    const tg = e.target;
+    const isCheck = tg.matches && tg.matches('input[type=checkbox]');
+    const isScrub = tg.id === 'scrub';
+    if (tg.closest && tg.closest('input, select, textarea') && !isCheck && !isScrub) return;
+    if (e.key === ' ') {
+      if (isCheck || (tg.closest && tg.closest('button'))) return; // native toggle / click
+      e.preventDefault(); setPlaying(!playing);
+    }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); seek(t + (e.shiftKey ? 10 : 1)); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); seek(t - (e.shiftKey ? 10 : 1)); }
+    else if (e.key === ']') jumpEvent(1);
+    else if (e.key === '[') jumpEvent(-1);
+  });
+
+  // ------------------------------------------------------------------ loading
+  function load(text, name) {
+    let m;
+    try { m = D.build(text, { swap: $('swap').checked }); }
+    catch (err) { status(`Could not read ${name}: ${err.message}`, true); return false; }
+    if (!m.st[1].length && !m.st[2].length) {
+      status(`${name} has no 0x181 or 0x282 station frames. Is it an EC4 sniffer log?`, true);
+      return false;
+    }
+    const keepT = rawText === text ? t : null;
+    model = m; rawText = text; fileName = name;
+    const dur = m.t1 - m.t0;
+    const ids = Object.keys(m.ids).length;
+    $('fileinfo').innerHTML = `<b>${escapeHtml(name)}</b> · ${m.meta.bitrate ? (m.meta.bitrate / 1000) + ' kbit/s · ' : ''}${m.frameCount.toLocaleString()} frames · ${ids} IDs · ${dur.toFixed(1)} s${m.badLines.length ? ` · ${m.badLines.length} unreadable line${m.badLines.length === 1 ? '' : 's'} skipped` : ''}`;
+    $('scrub').min = m.t0; $('scrub').max = m.t1;
+    renderEvents();
+    lastCurrent = null;
+    t = keepT !== null ? keepT : m.t0;
+    status('');
+    render();
+    return true;
+  }
+  function status(msg, err) { const s = $('status'); s.textContent = msg; s.classList.toggle('err', !!err); }
+  function readFile(file) {
+    if (!file) return;
+    const fr = new FileReader();
+    fr.onload = () => { setPlaying(false); load(String(fr.result), file.name); };
+    fr.onerror = () => status(`Could not read ${file.name}.`, true);
+    fr.readAsText(file);
+  }
+  $('file').addEventListener('change', (e) => readFile(e.target.files[0]));
+  const loadSample = (n) => {
+    setPlaying(false);
+    const ok = n === 1 ? load($('sample-log-1').textContent, 'capture1.log (capture 1, 23 Sep)') : load($('sample-log').textContent, 'ec4-sample.log (capture 3 excerpt, 2 Oct)');
+    if (ok) seek(n === 1 ? 104.5 : 476);
+  };
+  $('sample1').addEventListener('click', () => loadSample(1));
+  $('sample2').addEventListener('click', () => loadSample(2));
+  $('swap').addEventListener('change', () => { if (rawText) load(rawText, fileName); });
+  document.addEventListener('dragover', (e) => { e.preventDefault(); document.body.classList.add('dragging'); });
+  document.addEventListener('dragleave', (e) => { if (e.target === document.documentElement || !e.relatedTarget) document.body.classList.remove('dragging'); });
+  document.addEventListener('drop', (e) => { e.preventDefault(); document.body.classList.remove('dragging'); const f = e.dataTransfer.files[0]; if (f) readFile(f); else status('Drop a .log file from the sniffer, not text.', true); });
+  window.addEventListener('resize', () => { heads[1].fit(); heads[2].fit(); drawTimeline(); });
+  const redraw = () => requestAnimationFrame(render);
+  try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', redraw); } catch (_) {}
+  new MutationObserver(redraw).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  // test hook for automated checks
+  window.EC4Playback = { get model() { return model; }, get t() { return t; }, seek, load, stateAt: (tt, stn) => D.stateAt(model, tt, stn || 'auto'), setPlaying, get playing() { return playing; } };
+
+  const heads = { 1: makeHead($('head1'), 'h1'), 2: makeHead($('head2'), 'h2') };
+  buildFilters();
+  loadSample(2);
+})();
+</script>

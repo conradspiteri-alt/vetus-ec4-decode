@@ -1,0 +1,12 @@
+"Fast reversals, engines off (capture 3, 2 Oct 2026)"
+"Lever times from 0x181, actuator times from 0x384 or 0x485. Labelled by phone notes."
+
+Case,Lever leaves gear to C0 (s),C0 to opposite gear engaged (s),Lever leaves gear to opposite gear engaged (s),Reading,Publish
+"Port, ahead at idle, straight through to astern",0.54,0.46,1,The baseline: actuator travel only,Now
+"Starboard, ahead at 45 %, straight through to astern",0.8,0.61,1.42,About 0.4 s more than at idle: throttle returned to idle first,Now
+"Port, ahead at 21 to 31 %, 1 s pause in neutral, then astern",0.86,0.61,1.48,The pause cost nothing extra: the actuator was still disengaging during it,Now
+"Port, ahead at 41 %, straight through to astern",0.98,0.46,1.44,As the 45 % case,Now
+
+"The EC4 adds no neutral dwell of its own on a reversal (consistent with dI = 0.0 s, the factory default)."
+The actuator always returns the throttle to idle before it shifts. With the throttle above about 20 % that adds about 0.4 s.
+"With the engines running, propeller and RPM decay may still lag the mechanism. These figures are the mechanical minimum, not a safe reversal time under way."

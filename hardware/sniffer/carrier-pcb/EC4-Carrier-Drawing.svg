@@ -1,0 +1,261 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1780" height="1120" viewBox="0 0 1780 1120" font-family="Helvetica,Arial,sans-serif">
+<defs><marker id="ar" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto"><path d="M0,0 L9,3.5 L0,7 z" fill="#b1300f"/></marker><marker id="ars" markerWidth="9" markerHeight="7" refX="0" refY="3.5" orient="auto"><path d="M9,0 L0,3.5 L9,7 z" fill="#b1300f"/></marker></defs>
+<rect width="1780" height="1120" fill="#ffffff"/>
+<rect x="12" y="12" width="1756" height="1096" fill="none" stroke="#111820" stroke-width="2"/>
+<rect x="1268" y="982" width="500" height="126" fill="#fbfaf7" stroke="#111820" stroke-width="2"/>
+<line x1="1268" y1="1016" x2="1768" y2="1016" stroke="#111820" stroke-width="1"/>
+<line x1="1268" y1="1050" x2="1768" y2="1050" stroke="#111820" stroke-width="1"/>
+<text x="1278" y="1006" font-size="17" font-weight="700" fill="#111820">EC4 SNIFFER - CARRIER PCB, PLAN</text>
+<text x="1278" y="1038" font-size="12" fill="#4a5a6a">DWG EC4-100 rev B</text>
+<text x="1428" y="1038" font-size="12" fill="#4a5a6a">NTS</text>
+<text x="1598" y="1038" font-size="12" fill="#4a5a6a">UNITS mm</text>
+<text x="1278" y="1066" font-size="10.5" fill="#4a5a6a">MATERIAL   FR-4, 2 layer, 1.6 mm, 1 oz</text>
+<text x="1526" y="1066" font-size="10.5" fill="#4a5a6a">FINISH   HASL lead-free, green / white</text>
+<text x="1278" y="1083" font-size="10.5" fill="#4a5a6a">VIEW   plan from component side</text>
+<text x="1526" y="1083" font-size="10.5" fill="#4a5a6a">DATUM   lower-left corner of outline</text>
+<text x="1278" y="1100" font-size="10.5" fill="#4a5a6a">TOLERANCE   +/-0.1 unless stated</text>
+<text x="1526" y="1100" font-size="10.5" fill="#4a5a6a">Vias (33 off, 0.40) not shown on view</text>
+<polyline points="190.00,778.60 973.20,778.60 973.20,120.00 448.10,120.00 448.10,213.45 190.00,213.45 190.00,778.60" fill="#f4f8f4" stroke="#111820" stroke-width="2.8"/>
+<rect x="207.80" y="155.60" width="231.40" height="623.00" fill="none" stroke="#8a97a4" stroke-width="1.1" stroke-dasharray="7,4"/>
+<text x="323.5" y="458.2" font-size="11" font-weight="400" fill="#8a97a4" text-anchor="middle">ESP32-S3 DevKitC-1</text>
+<rect x="465.90" y="360.30" width="445.00" height="418.30" fill="none" stroke="#8a97a4" stroke-width="1.1" stroke-dasharray="7,4"/>
+<text x="688.4" y="565.0" font-size="11" font-weight="400" fill="#8a97a4" text-anchor="middle">SK Pang ISO1050</text>
+<rect x="465.90" y="120.00" width="311.50" height="222.50" fill="none" stroke="#8a97a4" stroke-width="1.1" stroke-dasharray="7,4"/>
+<text x="617.2" y="226.8" font-size="11" font-weight="400" fill="#8a97a4" text-anchor="middle">microSD breakout</text>
+<rect x="866.40" y="395.90" width="89.00" height="347.10" fill="none" stroke="#8a97a4" stroke-width="1.0" stroke-dasharray="3,3"/>
+<circle cx="221.77" cy="232.67" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="255.28" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="277.89" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="300.49" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="323.10" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="345.70" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="368.31" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="390.92" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="413.52" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="436.13" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="458.73" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="481.34" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="503.95" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="526.55" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="549.16" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="571.76" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="594.37" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="616.98" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="639.58" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="662.19" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="684.79" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="221.77" cy="707.40" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="707.40" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="684.79" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="662.19" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="639.58" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="616.98" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="594.37" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="571.76" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="549.16" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="526.55" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="503.95" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="481.34" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="458.73" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="436.13" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="413.52" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="390.92" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="368.31" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="345.70" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="323.10" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="300.49" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="277.89" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="255.28" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="425.23" cy="232.67" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="490.82" cy="707.40" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="490.82" cy="684.79" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="490.82" cy="662.19" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="490.82" cy="639.58" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="510.40" cy="321.67" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="510.40" cy="299.07" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="510.40" cy="276.46" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="510.40" cy="253.86" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="510.40" cy="231.25" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="510.40" cy="208.64" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="510.40" cy="186.04" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="510.40" cy="163.43" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="510.40" cy="140.83" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="924.25" cy="266.85" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="924.25" cy="176.43" r="4.45" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="839.70" cy="321.14" r="4.90" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="839.70" cy="288.61" r="4.90" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="867.11" cy="213.45" r="4.00" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="821.90" cy="213.45" r="4.00" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="817.45" cy="151.15" r="4.00" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="885.27" cy="151.15" r="4.00" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="937.60" cy="166.72" r="4.00" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="937.60" cy="144.47" r="4.00" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="950.95" cy="275.04" r="3.56" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="950.95" cy="320.25" r="3.56" fill="#ffffff" stroke="#111820" stroke-width="1.1"/>
+<circle cx="492.60" cy="751.90" r="15.13" fill="#ffffff" stroke="#1d6b3a" stroke-width="1.9"/>
+<circle cx="492.60" cy="387.00" r="15.13" fill="#ffffff" stroke="#1d6b3a" stroke-width="1.9"/>
+<circle cx="759.60" cy="324.70" r="10.68" fill="#ffffff" stroke="#1d6b3a" stroke-width="1.9"/>
+<circle cx="759.60" cy="137.80" r="10.68" fill="#ffffff" stroke="#1d6b3a" stroke-width="1.9"/>
+<line x1="474.0" y1="751.9" x2="511.2" y2="751.9" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<line x1="492.6" y1="733.3" x2="492.6" y2="770.5" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<circle cx="492.60" cy="751.90" r="2.20" fill="#1d6b3a" stroke="#1d6b3a" stroke-width="0"/>
+<line x1="474.0" y1="387.0" x2="511.2" y2="387.0" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<line x1="492.6" y1="368.4" x2="492.6" y2="405.6" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<circle cx="492.60" cy="387.00" r="2.20" fill="#1d6b3a" stroke="#1d6b3a" stroke-width="0"/>
+<line x1="745.4" y1="324.7" x2="773.8" y2="324.7" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<line x1="759.6" y1="310.5" x2="759.6" y2="338.9" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<circle cx="759.60" cy="324.70" r="2.20" fill="#1d6b3a" stroke="#1d6b3a" stroke-width="0"/>
+<line x1="745.4" y1="137.8" x2="773.8" y2="137.8" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<line x1="759.6" y1="123.6" x2="759.6" y2="152.0" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<circle cx="759.60" cy="137.80" r="2.20" fill="#1d6b3a" stroke="#1d6b3a" stroke-width="0"/>
+<line x1="190.0" y1="778.6" x2="190.0" y2="870.6" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="973.2" y1="778.6" x2="973.2" y2="870.6" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="190.0" y1="870.6" x2="973.2" y2="870.6" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="581.6" y="884.6" font-size="12" font-weight="700" fill="#b1300f" text-anchor="middle">88.0</text>
+<line x1="190.0" y1="778.6" x2="72.0" y2="778.6" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="190.0" y1="120.0" x2="72.0" y2="120.0" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="72.0" y1="778.6" x2="72.0" y2="120.0" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="66.0" y="449.3" font-size="12" font-weight="700" fill="#b1300f" text-anchor="end" transform="rotate(-90 66.0 449.3)">74.0</text>
+<line x1="190.0" y1="120.0" x2="190.0" y2="68.0" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="448.1" y1="120.0" x2="448.1" y2="68.0" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="190.0" y1="68.0" x2="448.1" y2="68.0" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="319.1" y="63.0" font-size="12" font-weight="700" fill="#b1300f" text-anchor="middle">29.0</text>
+<line x1="973.2" y1="213.4" x2="1031.2" y2="213.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="973.2" y1="120.0" x2="1031.2" y2="120.0" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="1031.2" y1="213.4" x2="1031.2" y2="120.0" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="1037.2" y="166.7" font-size="12" font-weight="700" fill="#b1300f" text-anchor="start" transform="rotate(-90 1037.2 166.7)">10.5</text>
+<line x1="190.0" y1="778.6" x2="128.0" y2="778.6" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="190.0" y1="213.4" x2="128.0" y2="213.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="128.0" y1="778.6" x2="128.0" y2="213.4" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="122.0" y="496.0" font-size="12" font-weight="700" fill="#b1300f" text-anchor="end" transform="rotate(-90 122.0 496.0)">63.5</text>
+<line x1="221.8" y1="707.4" x2="221.8" y2="842.6" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="425.2" y1="707.4" x2="425.2" y2="842.6" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="221.8" y1="842.6" x2="425.2" y2="842.6" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="323.5" y="856.6" font-size="12" font-weight="700" fill="#b1300f" text-anchor="middle">22.86</text>
+<line x1="492.6" y1="751.9" x2="544.6" y2="791.9" stroke="#111820" stroke-width="0.9" marker-start="url(#ars)"/>
+<text x="548.6" y="795.9" font-size="11" fill="#111820" text-anchor="start">3.4 NPTH (2 off)</text>
+<line x1="759.6" y1="137.8" x2="817.6" y2="95.8" stroke="#111820" stroke-width="0.9" marker-start="url(#ars)"/>
+<text x="821.6" y="99.8" font-size="11" fill="#111820" text-anchor="start">2.4 NPTH (2 off)</text>
+<rect x="190.00" y="213.45" width="258.10" height="48.95" fill="none" stroke="#b1300f" stroke-width="1.0" stroke-dasharray="4,3"/>
+<text x="319.1" y="243.7" font-size="9.5" font-weight="400" fill="#b1300f" text-anchor="middle">COPPER KEEP-OUT, BOTH LAYERS</text>
+<text x="319.1" y="177.8" font-size="11" font-weight="700" fill="#b1300f" text-anchor="middle">ANTENNA NOTCH</text>
+<text x="1215.0" y="142.0" font-size="13" font-weight="700" fill="#111820" text-anchor="start">FEATURE COORDINATES  (from datum)</text>
+<rect x="1215" y="150" width="462" height="19" fill="#e6ecf1" stroke="#111820" stroke-width="1"/>
+<text x="1221.0" y="164.0" font-size="11" font-weight="700" fill="#111820" text-anchor="start">X</text>
+<text x="1279.0" y="164.0" font-size="11" font-weight="700" fill="#111820" text-anchor="start">Y</text>
+<text x="1337.0" y="164.0" font-size="11" font-weight="700" fill="#111820" text-anchor="start">DIA</text>
+<text x="1383.0" y="164.0" font-size="11" font-weight="700" fill="#111820" text-anchor="start">FEATURE  (pin 1 / datum)</text>
+<rect x="1215" y="169" width="462" height="19" fill="#f7f9fb" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="183.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">34.00</text>
+<text x="1279.0" y="183.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">3.00</text>
+<text x="1337.0" y="183.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">3.4</text>
+<text x="1383.0" y="183.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">SK Pang M3 clearance, NPTH</text>
+<rect x="1215" y="188" width="462" height="19" fill="#ffffff" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="202.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">34.00</text>
+<text x="1279.0" y="202.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">44.00</text>
+<text x="1337.0" y="202.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">3.4</text>
+<text x="1383.0" y="202.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">SK Pang M3 clearance, NPTH</text>
+<rect x="1215" y="207" width="462" height="19" fill="#f7f9fb" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="221.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">64.00</text>
+<text x="1279.0" y="221.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">51.00</text>
+<text x="1337.0" y="221.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">2.4</text>
+<text x="1383.0" y="221.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">microSD M2 clearance, NPTH</text>
+<rect x="1215" y="226" width="462" height="19" fill="#ffffff" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="240.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">64.00</text>
+<text x="1279.0" y="240.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">72.00</text>
+<text x="1337.0" y="240.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">2.4</text>
+<text x="1383.0" y="240.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">microSD M2 clearance, NPTH</text>
+<rect x="1215" y="245" width="462" height="19" fill="#f7f9fb" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="259.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">3.57</text>
+<text x="1279.0" y="259.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">61.34</text>
+<text x="1337.0" y="259.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">1.0</text>
+<text x="1383.0" y="259.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">J1 pin 1   2 x 22 @ 2.54, rows 22.86</text>
+<rect x="1215" y="264" width="462" height="19" fill="#ffffff" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="278.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">26.43</text>
+<text x="1279.0" y="278.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">8.00</text>
+<text x="1337.0" y="278.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">1.0</text>
+<text x="1383.0" y="278.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">J1 pin 23</text>
+<rect x="1215" y="283" width="462" height="19" fill="#f7f9fb" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="297.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">33.80</text>
+<text x="1279.0" y="297.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">8.00</text>
+<text x="1337.0" y="297.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">1.0</text>
+<text x="1383.0" y="297.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">J3 pin 1 (+Vcc)   1 x 4 @ 2.54</text>
+<rect x="1215" y="302" width="462" height="19" fill="#ffffff" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="316.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">36.00</text>
+<text x="1279.0" y="316.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">51.34</text>
+<text x="1337.0" y="316.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">1.0</text>
+<text x="1383.0" y="316.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">J4 pin 1 (3V3)   1 x 9 @ 2.54</text>
+<rect x="1215" y="321" width="462" height="19" fill="#f7f9fb" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="335.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">73.00</text>
+<text x="1279.0" y="335.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">51.40</text>
+<text x="1337.0" y="335.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">1.1</text>
+<text x="1383.0" y="335.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">J2 pin 1   2 @ 3.655, oval 2.0 x 1.4</text>
+<rect x="1215" y="340" width="462" height="19" fill="#ffffff" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="354.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">76.08</text>
+<text x="1279.0" y="354.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">63.50</text>
+<text x="1337.0" y="354.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">0.9</text>
+<text x="1383.0" y="354.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">F1 pin 1   5.08 pitch</text>
+<rect x="1215" y="359" width="462" height="19" fill="#f7f9fb" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="373.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">70.50</text>
+<text x="1279.0" y="373.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">70.50</text>
+<text x="1337.0" y="373.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">0.9</text>
+<text x="1383.0" y="373.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">D2 pin 1   7.62 pitch</text>
+<rect x="1215" y="378" width="462" height="19" fill="#ffffff" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="392.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">82.50</text>
+<text x="1279.0" y="392.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">57.50</text>
+<text x="1337.0" y="392.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">1.0</text>
+<text x="1383.0" y="392.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">D1 pin 1   10.16 pitch</text>
+<rect x="1215" y="397" width="462" height="19" fill="#f7f9fb" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="411.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">84.00</text>
+<text x="1279.0" y="411.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">68.75</text>
+<text x="1337.0" y="411.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">0.9</text>
+<text x="1383.0" y="411.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">C1 pin 1   2.50 pitch</text>
+<rect x="1215" y="416" width="462" height="19" fill="#ffffff" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="430.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">85.50</text>
+<text x="1279.0" y="430.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">51.50</text>
+<text x="1337.0" y="430.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">0.8</text>
+<text x="1383.0" y="430.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">C2 pin 1   5.08 pitch</text>
+<text x="1215.0" y="479.0" font-size="13" font-weight="700" fill="#111820" text-anchor="start">HOLE SCHEDULE</text>
+<rect x="1215" y="487" width="462" height="19" fill="#e6ecf1" stroke="#111820" stroke-width="1"/>
+<text x="1221.0" y="501.0" font-size="11" font-weight="700" fill="#111820" text-anchor="start">DIA</text>
+<text x="1279.0" y="501.0" font-size="11" font-weight="700" fill="#111820" text-anchor="start">TYPE</text>
+<text x="1337.0" y="501.0" font-size="11" font-weight="700" fill="#111820" text-anchor="start">QTY</text>
+<rect x="1215" y="506" width="462" height="19" fill="#f7f9fb" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="520.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">3.4</text>
+<text x="1279.0" y="520.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">NPTH</text>
+<text x="1337.0" y="520.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">2</text>
+<rect x="1215" y="525" width="462" height="19" fill="#ffffff" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="539.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">2.4</text>
+<text x="1279.0" y="539.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">NPTH</text>
+<text x="1337.0" y="539.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">2</text>
+<rect x="1215" y="544" width="462" height="19" fill="#f7f9fb" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="558.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">1.1</text>
+<text x="1279.0" y="558.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">PTH</text>
+<text x="1337.0" y="558.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">2</text>
+<rect x="1215" y="563" width="462" height="19" fill="#ffffff" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="577.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">1.0</text>
+<text x="1279.0" y="577.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">PTH</text>
+<text x="1337.0" y="577.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">59</text>
+<rect x="1215" y="582" width="462" height="19" fill="#f7f9fb" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="596.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">0.9</text>
+<text x="1279.0" y="596.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">PTH</text>
+<text x="1337.0" y="596.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">6</text>
+<rect x="1215" y="601" width="462" height="19" fill="#ffffff" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="615.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">0.8</text>
+<text x="1279.0" y="615.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">PTH</text>
+<text x="1337.0" y="615.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">2</text>
+<rect x="1215" y="620" width="462" height="19" fill="#f7f9fb" stroke="#111820" stroke-width="0.6"/>
+<text x="1221.0" y="634.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">0.40</text>
+<text x="1279.0" y="634.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">PTH</text>
+<text x="1337.0" y="634.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">33</text>
+<text x="1215.0" y="675.0" font-size="13" font-weight="700" fill="#111820" text-anchor="start">NOTES</text>
+<text x="1215.0" y="695.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">1.  The 29.0 x 10.5 notch is INTENTIONAL. It is antenna clearance</text>
+<text x="1215.0" y="711.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">     for the DevKitC, which overhangs it. Rout exactly to Edge.Cuts.</text>
+<text x="1215.0" y="727.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">2.  Smallest drill 0.40. Smallest annular ring 0.20.</text>
+<text x="1215.0" y="743.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">3.  Ground poured both layers, excluded above Y61.0.</text>
+<text x="1215.0" y="759.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">4.  NO carrier mounting holes by design. The board sits on an</text>
+<text x="1215.0" y="775.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">     enclosure ledge and is clamped by ribs on the lid.</text>
+<text x="1215.0" y="791.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">5.  The four NPTH holes are clearance for the daughterboards,</text>
+<text x="1215.0" y="807.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">     not fixings for the carrier itself.</text>
+<text x="1215.0" y="823.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">6.  Tightest copper clearance 0.295, at the J1 right pin row.</text>
+</svg>

@@ -1,0 +1,15 @@
+"Taking command, warm-up and synchronisation"
+"Capture 2, 27 Sep 2026. Keypad actions are 1.5 s holds with both levers in neutral (manual)."
+
+1. Taking command
+Situation,What the bus shows,Timing,Confidence,Publish
+Nobody in command (after power-on),Command held: flags 42 to 43 directly.,One frame,Measured,Now
+
+
+3. Warm-up and synchronisation
+Mode,Behaviour,Timing,Confidence,Publish
+Warm-up (flag 0x02),"Gear inhibited, throttle live: levers to 100 % throttle, actuators stayed C0",Other station mirrors the flag 140 to 160 ms later,Measured,Now
+Warm-up is system-wide,Warm-up switched on at the flybridge set 0x02 on both stations,610.82 s,Measured,Now
+Synchronisation (flag 0x08),The commanding station writes its right lever into both the port and starboard bytes. Both actuators followed together,"Mirror 140 to 160 ms; main sync 417.03 s, fly sync 626.72 s",Measured,Now
+Sync with warm-up on,Refused: flags stayed 43,1210.58 s,Measured,Now
+Left lever in sync,Assumed ignored; the log cannot show which lever was moved,,Inferred,Now

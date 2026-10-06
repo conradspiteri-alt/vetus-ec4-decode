@@ -1,0 +1,17 @@
+Boot sequence after EC4 power-on
+"Capture 2, two power-ons (147.816 s and 1029.009 s). t = 0 at the first frame. Both boots matched to within 1 ms."
+
+t (ms),Frame,Meaning,Confidence,Publish
+0,"0x705#00, 0x704#00",Actuator boot-up heartbeats,Measured,Now
+0,"0x384#40, 0x485#40",Actuators booting,Measured,Now
+255,0x282#42,"Flybridge first frame: warm-up on, no command",Measured,Now
+265,0x181#42,"Main helm first frame: warm-up on, no command",Measured,Now
+512,"0x705#05, 0x704#05",Actuators operational,Measured,Now
+925,0x702#05,Flybridge first heartbeat,Measured,Now
+955,0x701#05,Main helm first heartbeat,Measured,Now
+1076,"0x384#C0, 0x485#C0",Actuators report neutral,Measured,Now
+
+"No NMT start command, SDO or SYNC: every node starts by itself."
+"The stations never send a CANopen boot-up message (0x7nn#00). Their first heartbeat is already 05, about 670 ms after their first station frame."
+Nobody holds command after power-on (no Fast Start-up Mode on this installation): flags stay 42 until Command is held at one station.
+Boot 1 lost 0x704#00 and the first actuator frames while the sniffer locked its bitrate; boot 2 caught everything.

@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "ec4")(type "KiCad")(uri "${KIPRJMOD}/EC4-Carrier.pretty")(options "")(descr "EC4 sniffer carrier local footprints"))
+)

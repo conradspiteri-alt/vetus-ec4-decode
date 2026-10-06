@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 860" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1200" height="860" fill="#ffffff"/>
+  <text x="600" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#111">EC4 sniffer - housing hardware layout (design guide, mm)</text>
+  <text x="600" y="53" text-anchor="middle" font-size="12.5" fill="#555">SD sits in the LOGIC zone with the DevKitC (SPI). Only the SK Pang bus side faces the M12. Dims (?) confirm from the part.</text>
+
+  <!-- ============ PLAN VIEW ============ -->
+  <text x="60" y="90" font-size="15" font-weight="700" fill="#222">Plan view (into the tray, lid off)</text>
+
+  <rect x="80" y="110" width="560" height="470" rx="8" fill="#f7f9fb" stroke="#334" stroke-width="2"/>
+
+  <!-- LOGIC ZONE -->
+  <rect x="96" y="126" width="360" height="330" rx="6" fill="#eefcf0" stroke="#2e7d32" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="276" y="145" text-anchor="middle" font-size="11" font-weight="700" fill="#1b5e20">LOGIC ZONE (floating)</text>
+
+  <!-- DevKitC -->
+  <rect x="116" y="160" width="320" height="140" rx="5" fill="#eaf5ec" stroke="#2e7d32" stroke-width="2"/>
+  <text x="276" y="218" text-anchor="middle" font-size="13" font-weight="700" fill="#1b5e20">ESP32-S3-DevKitC-1</text>
+  <text x="276" y="238" text-anchor="middle" font-size="11" fill="#256">70 x 28 mm · NO mounting holes</text>
+  <text x="276" y="255" text-anchor="middle" font-size="10" fill="#256">retain by edge rails / clips</text>
+  <rect x="116" y="160" width="28" height="140" fill="#cfe3cf" stroke="#2e7d32"/>
+  <text x="130" y="234" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1b5e20" transform="rotate(-90 130 234)">USB end</text>
+
+  <!-- SD module now in logic zone, next to DevKitC -->
+  <rect x="150" y="330" width="150" height="110" rx="5" fill="#fff6e6" stroke="#a9791c" stroke-width="2"/>
+  <text x="225" y="372" text-anchor="middle" font-size="11" font-weight="700" fill="#7a5a12">microSD SPI</text>
+  <text x="225" y="390" text-anchor="middle" font-size="10" fill="#7a5a12">~35 x 25 mm (?)</text>
+  <text x="225" y="408" text-anchor="middle" font-size="9" fill="#7a5a12">SPI → DevKitC (6 wires)</text>
+  <text x="225" y="424" text-anchor="middle" font-size="9" fill="#7a5a12">card edge to lid</text>
+  <!-- SPI link SD->DevKit -->
+  <line x1="225" y1="330" x2="250" y2="300" stroke="#a9791c" stroke-width="2"/>
+  <text x="300" y="322" font-size="8.5" fill="#a9791c">SPI</text>
+
+  <!-- BUS ZONE -->
+  <rect x="336" y="330" width="290" height="126" rx="6" fill="#f7f0fb" stroke="#5a3d94" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="481" y="349" text-anchor="middle" font-size="11" font-weight="700" fill="#3d2a66">ISOLATED / BUS ZONE</text>
+
+  <!-- SK Pang -->
+  <rect x="352" y="360" width="180" height="80" rx="5" fill="#f3eefb" stroke="#5a3d94" stroke-width="2"/>
+  <text x="442" y="392" text-anchor="middle" font-size="11.5" font-weight="700" fill="#3d2a66">SK Pang isolated CAN</text>
+  <text x="442" y="410" text-anchor="middle" font-size="9.5" fill="#4a3577">~45 x 33 mm (?)</text>
+  <text x="442" y="426" text-anchor="middle" font-size="9" fill="#4a3577">host pads → DevKitC · bus → M12</text>
+
+  <!-- isolation barrier line inside tray -->
+  <line x1="326" y1="330" x2="326" y2="456" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5 3"/>
+
+  <!-- M12 on right wall -->
+  <circle cx="640" cy="400" r="26" fill="#eafaef" stroke="#1b8a3a" stroke-width="2"/>
+  <text x="640" y="396" text-anchor="middle" font-size="9" font-weight="700" fill="#155">M12</text>
+  <text x="640" y="410" text-anchor="middle" font-size="8" fill="#245">RS 877-1154</text>
+  <line x1="532" y1="400" x2="614" y2="400" stroke="#1b8a3a" stroke-width="2"/>
+  <text x="573" y="393" text-anchor="middle" font-size="8.5" fill="#155">tails</text>
+  <text x="640" y="452" text-anchor="middle" font-size="8.5" fill="#155">male, faces CANT (external)</text>
+
+  <!-- DevKit CAN link to SK Pang -->
+  <line x1="330" y1="300" x2="400" y2="360" stroke="#6a4caf" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="352" y="332" font-size="8.5" fill="#6a4caf">CAN 4-wire</text>
+
+  <!-- dims -->
+  <line x1="116" y1="150" x2="436" y2="150" stroke="#c0392b" stroke-width="1"/>
+  <text x="276" y="144" text-anchor="middle" font-size="10" fill="#c0392b">70</text>
+  <text x="360" y="600" text-anchor="middle" font-size="11" fill="#556">Internal tray ~ 160 (W) x 135 (D) mm · wall 3 · corner bosses (M3 heat-set)</text>
+
+  <!-- ============ SIDE ELEVATION ============ -->
+  <text x="700" y="90" font-size="15" font-weight="700" fill="#222">Side elevation</text>
+  <rect x="700" y="110" width="440" height="230" rx="8" fill="#f7f9fb" stroke="#334" stroke-width="2"/>
+  <rect x="700" y="315" width="440" height="25" fill="#e6e9ee" stroke="#334"/>
+  <text x="920" y="332" text-anchor="middle" font-size="10" fill="#556">base 3 mm + standoffs 5 mm</text>
+  <rect x="740" y="280" width="320" height="14" fill="#cfe3cf" stroke="#2e7d32"/>
+  <text x="900" y="291" text-anchor="middle" font-size="9.5" fill="#1b5e20">boards ~15 mm tall incl. headers</text>
+  <rect x="740" y="240" width="320" height="40" fill="none" stroke="#888" stroke-dasharray="4 3"/>
+  <text x="900" y="264" text-anchor="middle" font-size="9.5" fill="#666">component + wiring clearance</text>
+  <rect x="700" y="110" width="440" height="22" fill="#e6e9ee" stroke="#334"/>
+  <text x="920" y="125" text-anchor="middle" font-size="10" fill="#556">lid 3 mm + 2 mm O-ring gasket</text>
+  <line x1="684" y1="132" x2="684" y2="315" stroke="#c0392b" stroke-width="1"/>
+  <text x="676" y="224" text-anchor="middle" font-size="10" fill="#c0392b" transform="rotate(-90 676 224)">internal ~40 mm</text>
+  <rect x="1128" y="210" width="12" height="60" fill="#eafaef" stroke="#1b8a3a"/>
+  <text x="1095" y="200" text-anchor="middle" font-size="9" fill="#155">M12 penetration</text>
+  <text x="1095" y="290" text-anchor="middle" font-size="8.5" fill="#155">hole ~Ø13 (?)</text>
+
+  <!-- ============ ACCESS / NOTES ============ -->
+  <rect x="700" y="370" width="440" height="210" rx="8" fill="#fbfbfc" stroke="#889"/>
+  <text x="716" y="394" font-size="12.5" font-weight="700" fill="#223">Zones &amp; access</text>
+  <text x="716" y="416" font-size="10.5" fill="#334">• LOGIC zone: DevKitC + SD + power. SD wires to the DevKitC SPI</text>
+  <text x="716" y="432" font-size="10.5" fill="#334">   pins (NOT to the isolator). Card edge to the lid.</text>
+  <text x="716" y="450" font-size="10.5" fill="#334">• BUS zone: only the SK Pang bus side + the M12 penetration.</text>
+  <text x="716" y="466" font-size="10.5" fill="#334">   The isolation barrier runs between the two zones.</text>
+  <text x="716" y="484" font-size="10.5" fill="#334">• M12 wall faces the CANT so the box plugs straight on.</text>
+  <text x="716" y="502" font-size="10.5" fill="#334">• USB + SD card reached by lifting the lid. No external glands.</text>
+  <text x="716" y="520" font-size="10.5" fill="#334">• Power: USB from bank into the DevKitC USB port (bank outside).</text>
+  <text x="716" y="538" font-size="10.5" fill="#334">• DevKitC has no holes: edge rails/clips. Other boards on bosses.</text>
+  <text x="716" y="560" font-size="9.5" fill="#889">Confirm SK Pang + SD dims and the RS 877-1154 cutout from the parts.</text>
+
+  <!-- ============ ORDER STATUS ============ -->
+  <rect x="80" y="620" width="1060" height="210" rx="8" fill="#fbfbfc" stroke="#889"/>
+  <text x="96" y="646" font-size="13" font-weight="700" fill="#223">Bill of materials - status</text>
+  <text x="96" y="670" font-size="11" fill="#1b5e20">ORDERED  ·  ESP32-S3-DevKitC-1 (70x28)  ·  SK Pang isolated CAN (ISO1050)  ·  RS 877-1154 M12 male pre-wired  ·  microSD breakout (3.3V)</text>
+  <text x="96" y="690" font-size="11" fill="#1b5e20">HAVE  ·  USB power bank  ·  soldering iron, wick, multimeter, oscilloscope, mechanical tools, Creality K2 Plus</text>
+  <text x="96" y="714" font-size="11" font-weight="700" fill="#7a2418">STILL TO ORDER / GET</text>
+  <text x="96" y="734" font-size="11" fill="#334">• microSD card 32GB (SanDisk trials; industrial/pSLC if permanent), format FAT32 ~£8</text>
+  <text x="96" y="752" font-size="11" fill="#334">• Vetus CANT T-piece ~£61  ·  M3 heat-set inserts + M3x6 screws ~£8  ·  2 mm O-ring cord ~£6</text>
+  <text x="96" y="770" font-size="11" fill="#334">• Confirm USB cable matches DevKitC port and is data-capable</text>
+  <text x="96" y="792" font-size="10.5" fill="#889">Optional: acrylic conformal coat ~£10. Full circuit incl. power/connectors: Sniffer-Circuit-Diagram.svg. Harness pinout: Sniffer-Harness-Pinout.svg.</text>
+</svg>

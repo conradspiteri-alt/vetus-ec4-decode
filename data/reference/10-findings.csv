@@ -1,0 +1,27 @@
+Findings
+"Everything found so far, in the order found. Capture 1 = 23 Sep, 2 = 27 Sep, 3 = 2 Oct 2026."
+
+ID,Date found,Capture,Finding,Evidence or consequence,Confidence,Publish
+F-01,23 Sep 2026,1,"Eight IDs only: two station frames, two actuator status frames, four heartbeats. Node 3 absent",Station address 3 is free,Measured,Now
+F-02,23 Sep 2026,1,"Station frame bytes 1 and 4 carry gear, 2 and 5 throttle (00 to 64 hex)",Gear coding first guessed the wrong way round (corrected F-05),Measured,Now
+F-03,23 Sep 2026,1,"Actuator byte: C0 neutral, 4C shifting, 44 and 48 engaged","Lever FF with 44 in 113 frames, 01 with 48 in 81",Measured,Now
+F-04,27 Sep 2026,2,"Byte 0 flags: 0x40 always, 0x01 command, 0x02 warm-up, 0x08 sync (one further bit held pending disclosure)",37 labelled steps,Measured,Now (redacted)
+F-05,27 Sep 2026,2,FF = ahead (not astern); 44 = ahead engaged,"Labelled ""both together ahead""; confirmed by the owner 28 Sep",Measured,Now
+F-06,27 Sep 2026,2,"Both stations broadcast their levers every 150 ms, in command or not",,Measured,Now
+F-07,27 Sep 2026,2,"Boot sequence identical across two power-ons within 1 ms; no NMT, no station boot-up message",Boot sequence sheet,Measured,Now
+F-08,27 Sep 2026,2,Warm-up and sync are system-wide and mirrored 140 to 160 ms later,,Measured,Now
+F-11,27 Sep 2026,2,Sync writes the right lever into both engines; sync refused while warm-up is on,,Measured,Now
+F-12,28 Sep 2026,2,"73 frames missed in capture 2, 68 from the port actuator, all during starboard-only activity",Later traced to the sniffer (F-15),Measured,Now
+F-13,28 Sep 2026,2,No late retransmissions: every frame after a gap was back on its grid within 0.2 ms,"Pointed at the receiver, not the bus",Measured,Now
+F-14,29 Sep 2026,Manual,"Shift delays dI and dA: 0 to 9.9 s, factory default 0.0 s. Never changed on this installation","Manual 030624.13, section 9.3",Manual,Now
+F-15,1 Oct 2026,Bench,"Root cause of F-12: the sniffer's CAN_L input was open circuit (track broken at a lifted pad). It received on CAN_H alone, with about 0.1 V margin",Lesson for anyone building a tap: check continuity from the connector to the transceiver pins,Measured,Now
+F-16,2 Oct 2026,3,"Repair confirmed: zero missed frames on every ID over 578 s, bus error count flat",,Measured,Now
+F-17,2 Oct 2026,3,"01 = astern lever, 48 = astern engaged: labelled","""port astern fast""",Measured,Now
+F-18,2 Oct 2026,3,The EC4 adds no neutral dwell on a reversal; the actuator returns the throttle to idle before shifting (about 0.4 s extra above about 20 %),Reversals sheet,Measured,Now
+F-19,2 Oct 2026,3,First 4C can come up to 0.81 s after the lever frame when the throttle was above idle; at idle at most 0.47 s,Shift timing sheet,Measured,Now
+
+Still open
+-,What the actuators do when the station in command goes silent.
+-,Reversal times with the engines running.
+-,Sync with warm-up off after a refused attempt; left lever moved alone in sync.
+-,Trim buttons and actuator display codes.

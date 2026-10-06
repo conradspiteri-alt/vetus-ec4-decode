@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1340" viewBox="0 0 1800 1340" font-family="Helvetica,Arial,sans-serif">
+<defs><marker id="ar" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto"><path d="M0,0 L9,3.5 L0,7 z" fill="#b1300f"/></marker><marker id="ars" markerWidth="9" markerHeight="7" refX="0" refY="3.5" orient="auto"><path d="M9,0 L0,3.5 L9,7 z" fill="#b1300f"/></marker></defs>
+<rect width="1800" height="1340" fill="#ffffff"/>
+<rect x="12" y="12" width="1776" height="1316" fill="none" stroke="#111820" stroke-width="2"/>
+<rect x="1288" y="1202" width="500" height="126" fill="#fbfaf7" stroke="#111820" stroke-width="2"/>
+<line x1="1288" y1="1236" x2="1788" y2="1236" stroke="#111820" stroke-width="1"/>
+<line x1="1288" y1="1270" x2="1788" y2="1270" stroke="#111820" stroke-width="1"/>
+<text x="1298" y="1226" font-size="17" font-weight="700" fill="#111820">EC4 SNIFFER - ENCLOSURE rev B</text>
+<text x="1298" y="1258" font-size="12" fill="#4a5a6a">DWG EC4-200 rev B</text>
+<text x="1448" y="1258" font-size="12" fill="#4a5a6a">NTS</text>
+<text x="1618" y="1258" font-size="12" fill="#4a5a6a">UNITS mm</text>
+<text x="1298" y="1286" font-size="10.5" fill="#4a5a6a">MATERIAL   3D printed ASA</text>
+<text x="1546" y="1286" font-size="10.5" fill="#4a5a6a">WALL / FLOOR / LID   2.5</text>
+<text x="1298" y="1303" font-size="10.5" fill="#4a5a6a">END VIEW   from the connector face</text>
+<text x="1546" y="1303" font-size="10.5" fill="#4a5a6a">FIXINGS   4 off M3 heat-set insert</text>
+<text x="1298" y="1320" font-size="10.5" fill="#4a5a6a">DATUM   lower-left-front corner</text>
+<text x="1546" y="1320" font-size="10.5" fill="#4a5a6a">SEALING   none this iteration</text>
+<text x="178.0" y="82.0" font-size="14" font-weight="700" fill="#111820" text-anchor="start">PLAN   (lid removed)</text>
+<circle cx="199.00" cy="625.40" r="30.00" fill="#eef2f5" stroke="#111820" stroke-width="2.2"/>
+<circle cx="783.40" cy="625.40" r="30.00" fill="#eef2f5" stroke="#111820" stroke-width="2.2"/>
+<circle cx="199.00" cy="125.00" r="30.00" fill="#eef2f5" stroke="#111820" stroke-width="2.2"/>
+<circle cx="783.40" cy="125.00" r="30.00" fill="#eef2f5" stroke="#111820" stroke-width="2.2"/>
+<rect x="211.00" y="137.00" width="560.40" height="476.40" fill="#f7f9fb" stroke="#111820" stroke-width="2.6"/>
+<rect x="226.00" y="152.00" width="530.40" height="446.40" fill="none" stroke="#111820" stroke-width="1.6"/>
+<rect x="238.00" y="164.00" width="506.40" height="422.40" fill="none" stroke="#4a5a6a" stroke-width="1.2" stroke-dasharray="6,3"/>
+<circle cx="199.00" cy="625.40" r="12.00" fill="#ffffff" stroke="#111820" stroke-width="1.4"/>
+<line x1="183.5" y1="625.4" x2="214.5" y2="625.4" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<line x1="199.0" y1="609.9" x2="199.0" y2="640.9" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<circle cx="783.40" cy="625.40" r="12.00" fill="#ffffff" stroke="#111820" stroke-width="1.4"/>
+<line x1="767.9" y1="625.4" x2="798.9" y2="625.4" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<line x1="783.4" y1="609.9" x2="783.4" y2="640.9" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<circle cx="199.00" cy="125.00" r="12.00" fill="#ffffff" stroke="#111820" stroke-width="1.4"/>
+<line x1="183.5" y1="125.0" x2="214.5" y2="125.0" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<line x1="199.0" y1="109.5" x2="199.0" y2="140.5" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<circle cx="783.40" cy="125.00" r="12.00" fill="#ffffff" stroke="#111820" stroke-width="1.4"/>
+<line x1="767.9" y1="125.0" x2="798.9" y2="125.0" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<line x1="783.4" y1="109.5" x2="783.4" y2="140.5" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<polyline points="227.20,597.20 755.20,597.20 755.20,153.20 401.20,153.20 401.20,216.20 227.20,216.20 227.20,597.20" fill="none" stroke="#1d6b3a" stroke-width="1.5" stroke-dasharray="8,4"/>
+<text x="491.2" y="381.2" font-size="10.5" font-weight="400" fill="#1d6b3a" text-anchor="middle">CARRIER PCB 88 x 74</text>
+<rect x="331.00" y="303.20" width="18.00" height="144.00" fill="none" stroke="#8a97a4" stroke-width="1.0" stroke-dasharray="4,3"/>
+<rect x="385.00" y="303.20" width="18.00" height="144.00" fill="none" stroke="#8a97a4" stroke-width="1.0" stroke-dasharray="4,3"/>
+<rect x="439.00" y="303.20" width="18.00" height="144.00" fill="none" stroke="#8a97a4" stroke-width="1.0" stroke-dasharray="4,3"/>
+<rect x="493.00" y="303.20" width="18.00" height="144.00" fill="none" stroke="#8a97a4" stroke-width="1.0" stroke-dasharray="4,3"/>
+<rect x="547.00" y="303.20" width="18.00" height="144.00" fill="none" stroke="#8a97a4" stroke-width="1.0" stroke-dasharray="4,3"/>
+<rect x="601.00" y="303.20" width="18.00" height="144.00" fill="none" stroke="#8a97a4" stroke-width="1.0" stroke-dasharray="4,3"/>
+<text x="481.0" y="471.2" font-size="9.5" font-weight="400" fill="#8a97a4" text-anchor="middle">6 x VENT SLOT 3 x 24 IN FLOOR</text>
+<polyline points="317.20,613.40 317.20,661.40" fill="none" stroke="#b1300f" stroke-width="1.0" stroke-dasharray="5,3"/>
+<polyline points="389.20,613.40 389.20,661.40" fill="none" stroke="#b1300f" stroke-width="1.0" stroke-dasharray="5,3"/>
+<line x1="178.0" y1="646.4" x2="178.0" y2="730.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="804.4" y1="646.4" x2="804.4" y2="730.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="178.0" y1="730.4" x2="804.4" y2="730.4" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="491.2" y="744.4" font-size="12" font-weight="700" fill="#b1300f" text-anchor="middle">104.4</text>
+<line x1="211.0" y1="613.4" x2="211.0" y2="704.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="771.4" y1="613.4" x2="771.4" y2="704.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="211.0" y1="704.4" x2="771.4" y2="704.4" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="491.2" y="718.4" font-size="12" font-weight="700" fill="#b1300f" text-anchor="middle">93.4</text>
+<line x1="199.0" y1="625.4" x2="199.0" y2="70.0" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="783.4" y1="625.4" x2="783.4" y2="70.0" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="199.0" y1="70.0" x2="783.4" y2="70.0" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="491.2" y="65.0" font-size="12" font-weight="700" fill="#b1300f" text-anchor="middle">97.4  boss pitch</text>
+<line x1="178.0" y1="646.4" x2="82.0" y2="646.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="178.0" y1="104.0" x2="82.0" y2="104.0" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="82.0" y1="646.4" x2="82.0" y2="104.0" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="76.0" y="375.2" font-size="12" font-weight="700" fill="#b1300f" text-anchor="end" transform="rotate(-90 76.0 375.2)">90.4</text>
+<line x1="199.0" y1="625.4" x2="122.0" y2="625.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="199.0" y1="125.0" x2="122.0" y2="125.0" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="122.0" y1="625.4" x2="122.0" y2="125.0" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="116.0" y="375.2" font-size="12" font-weight="700" fill="#b1300f" text-anchor="end" transform="rotate(-90 116.0 375.2)">83.4</text>
+<line x1="226.0" y1="598.4" x2="844.4" y2="598.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="226.0" y1="152.0" x2="844.4" y2="152.0" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="844.4" y1="598.4" x2="844.4" y2="152.0" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="850.4" y="375.2" font-size="12" font-weight="700" fill="#b1300f" text-anchor="start" transform="rotate(-90 850.4 375.2)">74.4 cavity</text>
+<line x1="226.0" y1="152.0" x2="226.0" y2="96.0" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="756.4" y1="152.0" x2="756.4" y2="96.0" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="226.0" y1="96.0" x2="756.4" y2="96.0" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="491.2" y="91.0" font-size="12" font-weight="700" fill="#b1300f" text-anchor="middle">88.4 cavity</text>
+<line x1="783.4" y1="625.4" x2="805.4" y2="659.4" stroke="#111820" stroke-width="0.9" marker-start="url(#ars)"/>
+<text x="809.4" y="663.4" font-size="11" fill="#111820" text-anchor="start">BOSS 10.0 O/D, 4.0 INSERT HOLE</text>
+<line x1="199.0" y1="625.4" x2="181.0" y2="659.4" stroke="#111820" stroke-width="0.9" marker-start="url(#ars)"/>
+<text x="177.0" y="663.4" font-size="11" fill="#111820" text-anchor="end">3.5 from each face</text>
+<line x1="238.0" y1="269.0" x2="304.0" y2="221.0" stroke="#111820" stroke-width="0.9" marker-start="url(#ars)"/>
+<text x="308.0" y="225.0" font-size="11" fill="#111820" text-anchor="start">LEDGE 2.0 WIDE. TOP AT Z 7.5 FROM OUTER BASE = 5.0 ABOVE INTERNAL FLOOR</text>
+<text x="178.0" y="768.4" font-size="14" font-weight="700" fill="#111820" text-anchor="start">FRONT ELEVATION   (port face)</text>
+<rect x="211.00" y="818.40" width="560.40" height="198.00" fill="#f7f9fb" stroke="#111820" stroke-width="2.6"/>
+<rect x="169.00" y="818.40" width="60.00" height="198.00" fill="#eef2f5" stroke="#111820" stroke-width="1.8"/>
+<rect x="753.40" y="818.40" width="60.00" height="198.00" fill="#eef2f5" stroke="#111820" stroke-width="1.8"/>
+<polyline points="211.00,1001.40 771.40,1001.40" fill="none" stroke="#4a5a6a" stroke-width="1.2" stroke-dasharray="7,4"/>
+<polyline points="211.00,833.40 771.40,833.40" fill="none" stroke="#111820" stroke-width="2.0"/>
+<polyline points="211.00,971.40 771.40,971.40" fill="none" stroke="#1d6b3a" stroke-width="1.2" stroke-dasharray="6,3"/>
+<text x="765.4" y="966.4" font-size="9.5" font-weight="400" fill="#1d6b3a" text-anchor="end">carrier underside  Z7.5  (5.0 above internal floor)</text>
+<rect x="317.20" y="898.80" width="72.00" height="54.00" fill="#ffffff" stroke="#b1300f" stroke-width="2.0"/>
+<text x="353.2" y="890.8" font-size="10" font-weight="400" fill="#b1300f" text-anchor="middle">UART PORT</text>
+<line x1="317.2" y1="952.8" x2="317.2" y2="1050.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="389.2" y1="952.8" x2="389.2" y2="1050.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="317.2" y1="1050.4" x2="389.2" y2="1050.4" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="353.2" y="1064.4" font-size="12" font-weight="700" fill="#b1300f" text-anchor="middle">12.0</text>
+<line x1="211.0" y1="952.8" x2="211.0" y2="1078.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="317.2" y1="952.8" x2="317.2" y2="1078.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="211.0" y1="1078.4" x2="317.2" y2="1078.4" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="264.1" y="1092.4" font-size="12" font-weight="700" fill="#b1300f" text-anchor="middle">17.7</text>
+<line x1="389.2" y1="952.8" x2="820.4" y2="952.8" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="389.2" y1="898.8" x2="820.4" y2="898.8" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="820.4" y1="952.8" x2="820.4" y2="898.8" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="826.4" y="925.8" font-size="12" font-weight="700" fill="#b1300f" text-anchor="start" transform="rotate(-90 826.4 925.8)">9.0</text>
+<line x1="389.2" y1="1016.4" x2="854.4" y2="1016.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="389.2" y1="952.8" x2="854.4" y2="952.8" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="854.4" y1="1016.4" x2="854.4" y2="952.8" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="860.4" y="984.6" font-size="12" font-weight="700" fill="#b1300f" text-anchor="start" transform="rotate(-90 860.4 984.6)">10.6 to opening</text>
+<line x1="211.0" y1="1016.4" x2="82.0" y2="1016.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="211.0" y1="818.4" x2="82.0" y2="818.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="82.0" y1="1016.4" x2="82.0" y2="818.4" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="76.0" y="917.4" font-size="12" font-weight="700" fill="#b1300f" text-anchor="end" transform="rotate(-90 76.0 917.4)">33.0</text>
+<line x1="211.0" y1="1016.4" x2="122.0" y2="1016.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="211.0" y1="1001.4" x2="122.0" y2="1001.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="122.0" y1="1016.4" x2="122.0" y2="1001.4" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="116.0" y="1008.9" font-size="12" font-weight="700" fill="#b1300f" text-anchor="end" transform="rotate(-90 116.0 1008.9)">2.5</text>
+<line x1="211.0" y1="1001.4" x2="154.0" y2="1001.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="211.0" y1="833.4" x2="154.0" y2="833.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="154.0" y1="1001.4" x2="154.0" y2="833.4" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="148.0" y="917.4" font-size="12" font-weight="700" fill="#b1300f" text-anchor="end" transform="rotate(-90 148.0 917.4)">28.0</text>
+<text x="82.0" y="1050.4" font-size="10" font-weight="400" fill="#b1300f" text-anchor="start">ALL Z FROM OUTER UNDERSIDE (Z=0)</text>
+<line x1="771.4" y1="825.9" x2="811.4" y2="804.4" stroke="#111820" stroke-width="0.9" marker-start="url(#ars)"/>
+<text x="815.4" y="808.4" font-size="11" fill="#111820" text-anchor="start">LID 2.5</text>
+<text x="900.0" y="768.4" font-size="14" font-weight="700" fill="#111820" text-anchor="start">END ELEVATION   (connector face, viewed from the right)</text>
+<rect x="933.00" y="818.40" width="476.40" height="198.00" fill="#f7f9fb" stroke="#111820" stroke-width="2.6"/>
+<rect x="891.00" y="818.40" width="60.00" height="198.00" fill="#eef2f5" stroke="#111820" stroke-width="1.8"/>
+<rect x="1391.40" y="818.40" width="60.00" height="198.00" fill="#eef2f5" stroke="#111820" stroke-width="1.8"/>
+<polyline points="933.00,1001.40 1409.40,1001.40" fill="none" stroke="#4a5a6a" stroke-width="1.2" stroke-dasharray="7,4"/>
+<polyline points="933.00,833.40 1409.40,833.40" fill="none" stroke="#111820" stroke-width="2.0"/>
+<rect x="964.20" y="877.80" width="96.00" height="66.00" fill="#ffffff" stroke="#b1300f" stroke-width="2.0"/>
+<text x="1012.2" y="869.8" font-size="10" font-weight="400" fill="#b1300f" text-anchor="middle">M12 CAN TAIL</text>
+<circle cx="1267.20" cy="919.80" r="37.50" fill="#ffffff" stroke="#b1300f" stroke-width="2.0"/>
+<line x1="1226.2" y1="919.8" x2="1308.2" y2="919.8" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<line x1="1267.2" y1="878.8" x2="1267.2" y2="960.8" stroke="#2f6b8f" stroke-width="0.9" stroke-dasharray="6,2,1.5,2"/>
+<text x="1267.2" y="874.3" font-size="10" font-weight="400" fill="#b1300f" text-anchor="middle">GLAND 12.5</text>
+<line x1="900.0" y1="1016.4" x2="900.0" y2="1050.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="1442.4" y1="1016.4" x2="1442.4" y2="1050.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="900.0" y1="1050.4" x2="1442.4" y2="1050.4" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="1171.2" y="1064.4" font-size="12" font-weight="700" fill="#b1300f" text-anchor="middle">90.4</text>
+<line x1="964.2" y1="943.8" x2="964.2" y2="1078.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="1060.2" y1="943.8" x2="1060.2" y2="1078.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="964.2" y1="1078.4" x2="1060.2" y2="1078.4" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="1012.2" y="1092.4" font-size="12" font-weight="700" fill="#b1300f" text-anchor="middle">16.0</text>
+<line x1="964.2" y1="943.8" x2="938.2" y2="1060.4" stroke="#111820" stroke-width="0.9" marker-start="url(#ars)"/>
+<text x="934.2" y="1064.4" font-size="11" fill="#111820" text-anchor="end">5.2 from shell face</text>
+<line x1="933.0" y1="919.8" x2="933.0" y2="1106.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="1267.2" y1="919.8" x2="1267.2" y2="1106.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="933.0" y1="1106.4" x2="1267.2" y2="1106.4" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="1100.1" y="1120.4" font-size="12" font-weight="700" fill="#b1300f" text-anchor="middle">55.7 to gland centre</text>
+<line x1="1060.2" y1="943.8" x2="1460.4" y2="943.8" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="1060.2" y1="877.8" x2="1460.4" y2="877.8" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="1460.4" y1="943.8" x2="1460.4" y2="877.8" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="1466.4" y="910.8" font-size="12" font-weight="700" fill="#b1300f" text-anchor="start" transform="rotate(-90 1466.4 910.8)">11.0</text>
+<line x1="1267.2" y1="1016.4" x2="1494.4" y2="1016.4" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="1267.2" y1="919.8" x2="1494.4" y2="919.8" stroke="#b1300f" stroke-width="0.7" stroke-dasharray="3,2"/>
+<line x1="1494.4" y1="1016.4" x2="1494.4" y2="919.8" stroke="#b1300f" stroke-width="1.1" marker-start="url(#ars)" marker-end="url(#ar)"/>
+<text x="1500.4" y="968.1" font-size="12" font-weight="700" fill="#b1300f" text-anchor="start" transform="rotate(-90 1500.4 968.1)">16.1 to gland CL</text>
+<text x="900.0" y="124.0" font-size="13" font-weight="700" fill="#111820" text-anchor="start">HEIGHT DATUMS   Z=0 IS THE OUTER UNDERSIDE OF THE BASE</text>
+<rect x="900" y="132" width="454" height="19" fill="#e6ecf1" stroke="#111820" stroke-width="1"/>
+<text x="906.0" y="146.0" font-size="11" font-weight="700" fill="#111820" text-anchor="start">Z</text>
+<text x="968.0" y="146.0" font-size="11" font-weight="700" fill="#111820" text-anchor="start">FEATURE</text>
+<rect x="900" y="151" width="454" height="19" fill="#f7f9fb" stroke="#111820" stroke-width="0.6"/>
+<text x="906.0" y="165.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">2.5</text>
+<text x="968.0" y="165.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">floor, top face   (internal floor)</text>
+<rect x="900" y="170" width="454" height="19" fill="#ffffff" stroke="#111820" stroke-width="0.6"/>
+<text x="906.0" y="184.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">7.5</text>
+<text x="968.0" y="184.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">carrier underside, ledge top   = 5.0 above floor</text>
+<rect x="900" y="189" width="454" height="19" fill="#f7f9fb" stroke="#111820" stroke-width="0.6"/>
+<text x="906.0" y="203.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">9.1</text>
+<text x="968.0" y="203.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">carrier top face</text>
+<rect x="900" y="208" width="454" height="19" fill="#ffffff" stroke="#111820" stroke-width="0.6"/>
+<text x="906.0" y="222.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">11.6</text>
+<text x="968.0" y="222.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">daughterboard underside (2.5 header seat)</text>
+<rect x="900" y="227" width="454" height="19" fill="#f7f9fb" stroke="#111820" stroke-width="0.6"/>
+<text x="906.0" y="241.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">13.2</text>
+<text x="968.0" y="241.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">daughterboard top face</text>
+<rect x="900" y="246" width="454" height="19" fill="#ffffff" stroke="#111820" stroke-width="0.6"/>
+<text x="906.0" y="260.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">16.4</text>
+<text x="968.0" y="260.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">DevKitC USB connector top</text>
+<rect x="900" y="265" width="454" height="19" fill="#f7f9fb" stroke="#111820" stroke-width="0.6"/>
+<text x="906.0" y="279.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">23.2</text>
+<text x="968.0" y="279.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">SK Pang DC-DC top</text>
+<rect x="900" y="284" width="454" height="19" fill="#ffffff" stroke="#111820" stroke-width="0.6"/>
+<text x="906.0" y="298.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">25.7</text>
+<text x="968.0" y="298.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">DB9 top - the governing height</text>
+<rect x="900" y="303" width="454" height="19" fill="#f7f9fb" stroke="#111820" stroke-width="0.6"/>
+<text x="906.0" y="317.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">30.5</text>
+<text x="968.0" y="317.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">cavity ceiling / lid underside</text>
+<rect x="900" y="322" width="454" height="19" fill="#ffffff" stroke="#111820" stroke-width="0.6"/>
+<text x="906.0" y="336.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">33.0</text>
+<text x="968.0" y="336.0" font-size="11" font-weight="400" fill="#111820" text-anchor="start">overall top</text>
+<text x="900.0" y="377.0" font-size="13" font-weight="700" fill="#111820" text-anchor="start">NOTES</text>
+<text x="900.0" y="397.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">1.  Lid screw bosses are OUTSIDE the cavity by design. Anything inside</text>
+<text x="900.0" y="413.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">     it fouls the carrier, which fills the cavity.</text>
+<text x="900.0" y="429.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">2.  Lid carries a hold-down rib on the carrier's free left edge plus four</text>
+<text x="900.0" y="445.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">     pads, all stopping 1.5 above the board. Fit 1.5 EVA foam to each -</text>
+<text x="900.0" y="461.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">     that foam IS the clamp.</text>
+<text x="900.0" y="477.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">3.  Lid: 3.4 clearance with 6.2 counterbore, over 4.0 inserts in the base.</text>
+<text x="900.0" y="493.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">4.  LED window 18 x 12 in lid, thinned to 0.6, over the DevKitC RGB LED.</text>
+<text x="900.0" y="509.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">5.  Gland replaces the 13 x 10 slot of the earlier model. M12 thread,</text>
+<text x="900.0" y="525.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">     12.5 clearance hole, locknut supplied. Cable range 3.0 - 6.5.</text>
+<text x="900.0" y="541.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">6.  Headroom above the DB9 is 4.8. Removing the DB9 buys only 2.5,</text>
+<text x="900.0" y="557.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">     because the DC-DC is next at 23.2.</text>
+<text x="900.0" y="573.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">7.  No lid seal and no breather vent this iteration. Sealing without a</text>
+<text x="900.0" y="589.0" font-size="10.5" font-weight="400" fill="#4a5a6a" text-anchor="start">     vent is worse than leaving it unsealed.</text>
+</svg>

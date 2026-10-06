@@ -1,0 +1,19 @@
+"CAN IDs, nodes and frame periods"
+"125 kbit/s, 11-bit IDs, CANopen-like numbering. Only these 8 IDs appeared in 71,094 frames. Nothing on NMT 0x000, SYNC 0x080, EMCY or SDO."
+
+ID (hex),Node,Sender and content,Bytes,Nominal period,Capture 2 mean period (ms),Capture 2 p1 to p99 (ms),Capture 3 mean period (ms),"Capture 3 p1 to p99 (ms), notes",Confidence,Publish
+0x181,1,"Main helm station: flags, levers",7,150 ms,149.999,149.94 to 150.05,149.999,149.92 to 150.07,Measured,Now
+0x282,2,"Flybridge station: flags, levers",7,150 ms,149.998,149.57 to 150.42,149.999,149.57 to 150.42,Measured,Now
+0x384,4,Port actuator: status byte,1,153.6 ms,153.584,153.10 to 154.07,153.584,153.08 to 154.08,Measured,Now
+0x485,5,Starboard actuator: status byte,1,153.6 ms,153.585,153.12 to 154.04,153.585,153.10 to 154.06,Measured,Now
+0x701,1,Main helm heartbeat (05 = operational),1,500 ms,499.995,499.07 to 500.92,499.996,499.12 to 500.87,Measured,Now
+0x702,2,Flybridge heartbeat (05),1,500 ms,499.995,499.55 to 500.44,499.995,499.56 to 500.43,Measured,Now
+0x704,4,"Port actuator heartbeat (00 boot-up, then 05)",1,512 ms,511.968,511.09 to 512.78,511.947,510.93 to 512.95,Measured,Now
+0x705,5,"Starboard actuator heartbeat (00 boot-up, then 05)",1,512 ms,511.97,511.08 to 512.84,511.971,511.14 to 512.81,Measured,Now
+
+Notes
+"Periods are differences between receipt timestamps of consecutive frames of one ID, excluding gaps over 1.5 periods (power-off, and frames missed by the sniffer in capture 2). p1 to p99 is the 1st to 99th percentile."
+"The stations run on a 150 ms grid, the actuators on 153.6 ms (a 2.4 % slower clock tick), so actuator frames drift through the station frames and no fixed phase exists between a lever change and the next actuator frame."
+"Frame counts. Capture 2: 0x181 8,869; 0x282 8,868; 0x384 8,614; 0x485 8,666. Capture 3: 3,849, 3,849, 3,761, 3,761."
+Bus load about 2.4 % at 125 kbit/s.
+"Drop connector (M12 A-coded): black CAN_H, blue CAN_L, brown 0 V, white +24 V, grey unused. 67 ohm between CAN_H and CAN_L with the EC4 off (two 120 ohm terminators in parallel, plus wiring)."

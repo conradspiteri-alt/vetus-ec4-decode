@@ -1,0 +1,125 @@
+VERSION "vetus-ec4-can 0.2 2026-10-06"
+
+
+NS_ :
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	BA_DEF_DEF_
+	VAL_TABLE_
+
+BS_:
+
+BU_: MainHelm Flybridge PortActuator StbdActuator
+
+VAL_TABLE_ GearCode 255 "Ahead" 1 "Astern" 0 "Neutral" ;
+VAL_TABLE_ ActuatorCode 192 "Neutral_C0" 76 "Shifting_4C" 72 "AsternEngaged_48" 68 "AheadEngaged_44" 64 "Booting_40" ;
+VAL_TABLE_ NmtState 127 "PreOperational" 5 "Operational" 4 "Stopped" 0 "BootUp" ;
+
+
+BO_ 385 Station1_MainHelm: 7 MainHelm
+ SG_ Flag_Command : 0|1@1+ (1,0) [0|1] "" PortActuator,StbdActuator,Flybridge
+ SG_ Flag_WarmUp : 1|1@1+ (1,0) [0|1] "" PortActuator,StbdActuator,Flybridge
+ SG_ Flag_Bit2 : 2|1@1+ (1,0) [0|1] "" Flybridge
+ SG_ Flag_Sync : 3|1@1+ (1,0) [0|1] "" PortActuator,StbdActuator,Flybridge
+ SG_ Flag_Unknown4_5 : 4|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ Flag_Always1 : 6|1@1+ (1,0) [1|1] "" Vector__XXX
+ SG_ Flag_Unknown7 : 7|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ GearPort : 8|8@1+ (1,0) [0|255] "" PortActuator,Flybridge
+ SG_ ThrottlePort : 16|8@1+ (1,0) [0|100] "%" PortActuator,Flybridge
+ SG_ Reserved3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ GearStbd : 32|8@1+ (1,0) [0|255] "" StbdActuator,Flybridge
+ SG_ ThrottleStbd : 40|8@1+ (1,0) [0|100] "%" StbdActuator,Flybridge
+ SG_ Reserved6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 642 Station2_Flybridge: 7 Flybridge
+ SG_ Flag_Command : 0|1@1+ (1,0) [0|1] "" PortActuator,StbdActuator,MainHelm
+ SG_ Flag_WarmUp : 1|1@1+ (1,0) [0|1] "" PortActuator,StbdActuator,MainHelm
+ SG_ Flag_Bit2 : 2|1@1+ (1,0) [0|1] "" MainHelm
+ SG_ Flag_Sync : 3|1@1+ (1,0) [0|1] "" PortActuator,StbdActuator,MainHelm
+ SG_ Flag_Unknown4_5 : 4|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ Flag_Always1 : 6|1@1+ (1,0) [1|1] "" Vector__XXX
+ SG_ Flag_Unknown7 : 7|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ GearPort : 8|8@1+ (1,0) [0|255] "" PortActuator,MainHelm
+ SG_ ThrottlePort : 16|8@1+ (1,0) [0|100] "%" PortActuator,MainHelm
+ SG_ Reserved3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ GearStbd : 32|8@1+ (1,0) [0|255] "" StbdActuator,MainHelm
+ SG_ ThrottleStbd : 40|8@1+ (1,0) [0|100] "%" StbdActuator,MainHelm
+ SG_ Reserved6 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 900 Actuator_Port_Status: 1 PortActuator
+ SG_ ActuatorState : 0|8@1+ (1,0) [0|255] "" MainHelm,Flybridge
+
+BO_ 1157 Actuator_Stbd_Status: 1 StbdActuator
+ SG_ ActuatorState : 0|8@1+ (1,0) [0|255] "" MainHelm,Flybridge
+
+BO_ 1793 Heartbeat_Node1_MainHelm: 1 MainHelm
+ SG_ NmtState : 0|7@1+ (1,0) [0|127] "" Vector__XXX
+ SG_ NmtToggle : 7|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1794 Heartbeat_Node2_Flybridge: 1 Flybridge
+ SG_ NmtState : 0|7@1+ (1,0) [0|127] "" Vector__XXX
+ SG_ NmtToggle : 7|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1796 Heartbeat_Node4_PortActuator: 1 PortActuator
+ SG_ NmtState : 0|7@1+ (1,0) [0|127] "" Vector__XXX
+ SG_ NmtToggle : 7|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 1797 Heartbeat_Node5_StbdActuator: 1 StbdActuator
+ SG_ NmtState : 0|7@1+ (1,0) [0|127] "" Vector__XXX
+ SG_ NmtToggle : 7|1@1+ (1,0) [0|1] "" Vector__XXX
+
+
+CM_ "Vetus EC4 (Flexball 4500 series) station bus, as observed on one twin-engine installation with two stations. 125 kbit/s, 11-bit IDs, CANopen-like, no NMT master, no SDO, no SYNC. Every message here was observed [M] in captures capture1.log (23 Sep 2026), capture2.log (27 Sep 2026) and capture3.log (2 Oct 2026). Tags: [M] measured, [I] inference. Independent work, not affiliated with Vetus or Flexball. Listen only: do not transmit on an engine-control bus. Validated by tools/validate_dbc.py.";
+CM_ BU_ MainHelm "Node 1, twin-lever head at the main helm, station address 1 [M].";
+CM_ BU_ Flybridge "Node 2, twin-lever head on the flybridge, station address 2 [M].";
+CM_ BU_ PortActuator "Node 4, port EC4UMM1 actuator box (JP14 = 0 inferred) [M].";
+CM_ BU_ StbdActuator "Node 5, starboard EC4UMM1 actuator box (JP14 = 1 inferred) [M].";
+CM_ BO_ 385 "Station 1 TPDO (0x181), every 150 ms, 7 bytes, sent in and out of command [M]. Bytes 3 and 6 were 00 in every frame captured [M].";
+CM_ BO_ 642 "Station 2 TPDO (0x282), every 150 ms, 7 bytes, same layout as 0x181 [M]. Sent 10.2 ms before 0x181 in each cycle; the two free-run [M].";
+CM_ BO_ 900 "Port actuator status (0x384), every 153.6 ms, 1 byte [M]. In capture 2, 52 frames of this node are missing from the log, in 28 gaps up to 767.9 ms, all while only the starboard lever moved [M]. Traced on 1 Oct 2026 to an open CAN_L input at the sniffer, not the bus; capture 3 with the repaired input lost none [M].";
+CM_ BO_ 1157 "Starboard actuator status (0x485), every 153.6 ms, 1 byte [M].";
+CM_ BO_ 1793 "Heartbeat node 1, every 500 ms [M]. Stations never send a boot-up 00 [M]. NmtToggle is bit 7 of the byte; CANopen heartbeats keep it 0 (the toggle belongs to node guarding), and it was 0 in every frame [M].";
+CM_ BO_ 1794 "Heartbeat node 2, every 500 ms [M].";
+CM_ BO_ 1796 "Heartbeat node 4, every 512 ms [M]. Boot-up 00 sent once at power-on [M].";
+CM_ BO_ 1797 "Heartbeat node 5, every 512 ms [M]. Boot-up 00 sent once at power-on [M].";
+CM_ SG_ 385 Flag_Command "This station has command [M].";
+CM_ SG_ 385 Flag_WarmUp "Warm-up, system-wide: gear inhibited, throttle live. Set at every boot. Changed only by the station in command; the other station mirrors it 140 to 160 ms later [M].";
+CM_ SG_ 385 Flag_Bit2 "Bit 0x04. Seen set in a small number of frames [M]. Meaning documented separately, held pending disclosure.";
+CM_ SG_ 385 Flag_Sync "Synchronisation, system-wide, mirrored like warm-up [M]. In sync both stations write their right lever into both engine fields [M].";
+CM_ SG_ 385 Flag_Unknown4_5 "Never set in either capture [M].";
+CM_ SG_ 385 Flag_Always1 "0x40, set in every station frame [M].";
+CM_ SG_ 385 Flag_Unknown7 "Never set in either capture [M].";
+CM_ SG_ 385 GearPort "FF ahead (labelled, confirmed 28 Sep 2026) [M]; 00 neutral [M]; 01 astern [M] (labelled in capture 3, 2 Oct 2026).";
+CM_ SG_ 385 ThrottlePort "0x00..0x64 = 0..100 % lever throttle [M]. Normally 0 with gear 00; 3 frames in capture 3 carried 2 to 7 % with gear 00 during fast lever moves through neutral [M].";
+CM_ SG_ 642 Flag_Command "This station has command [M].";
+CM_ SG_ 642 Flag_WarmUp "See 0x181 [M].";
+CM_ SG_ 642 Flag_Bit2 "See 0x181.";
+CM_ SG_ 642 Flag_Sync "See 0x181 [M].";
+CM_ SG_ 900 ActuatorState "C0 neutral, 4C shifting, 44 ahead engaged [M]; 48 astern engaged [M] (labelled in capture 3); 40 booting [M]. Bit reading [I]: 0x80 neutral, 0x04 ahead, 0x08 astern, 0x40 always.";
+CM_ SG_ 1157 ActuatorState "Same coding as 0x384.";
+
+BA_DEF_ BO_ "GenMsgCycleTime" INT 0 65535;
+BA_DEF_DEF_ "GenMsgCycleTime" 0;
+BA_ "GenMsgCycleTime" BO_ 385 150;
+BA_ "GenMsgCycleTime" BO_ 642 150;
+BA_ "GenMsgCycleTime" BO_ 900 154;
+BA_ "GenMsgCycleTime" BO_ 1157 154;
+BA_ "GenMsgCycleTime" BO_ 1793 500;
+BA_ "GenMsgCycleTime" BO_ 1794 500;
+BA_ "GenMsgCycleTime" BO_ 1796 512;
+BA_ "GenMsgCycleTime" BO_ 1797 512;
+
+VAL_ 385 GearPort 255 "Ahead" 1 "Astern" 0 "Neutral" ;
+VAL_ 385 GearStbd 255 "Ahead" 1 "Astern" 0 "Neutral" ;
+VAL_ 642 GearPort 255 "Ahead" 1 "Astern" 0 "Neutral" ;
+VAL_ 642 GearStbd 255 "Ahead" 1 "Astern" 0 "Neutral" ;
+VAL_ 900 ActuatorState 192 "Neutral_C0" 76 "Shifting_4C" 72 "AsternEngaged_48" 68 "AheadEngaged_44" 64 "Booting_40" ;
+VAL_ 1157 ActuatorState 192 "Neutral_C0" 76 "Shifting_4C" 72 "AsternEngaged_48" 68 "AheadEngaged_44" 64 "Booting_40" ;
+VAL_ 1793 NmtState 127 "PreOperational" 5 "Operational" 4 "Stopped" 0 "BootUp" ;
+VAL_ 1794 NmtState 127 "PreOperational" 5 "Operational" 4 "Stopped" 0 "BootUp" ;
+VAL_ 1796 NmtState 127 "PreOperational" 5 "Operational" 4 "Stopped" 0 "BootUp" ;
+VAL_ 1797 NmtState 127 "PreOperational" 5 "Operational" 4 "Stopped" 0 "BootUp" ;
+

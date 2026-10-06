@@ -1,0 +1,27 @@
+Vetus EC4 CAN codes on the test boat,,
+Values are hexadecimal bytes from the EC4 CAN frames. Confirmed from captures 2 and 3 (27 Sep and 2 Oct 2026).,,
+1. Lever demand (what the helm asks for),,
+"Byte 1 = port gear, byte 4 = starboard gear, in each helm's frame (main helm 0x181, flybridge 0x282), sent every 150 ms. Throttle is in separate bytes (2 and 5), 00 to 64 hex = 0 to 100 %.",,
+Value (hex),Meaning,Status
+FF,Lever in ahead,Confirmed 28 Sep 2026
+00,Lever in neutral,Confirmed
+01,Lever in astern,Confirmed 2 Oct 2026 (capture 3)
+2. Actuator status (what the gearbox is actually doing),,
+"One byte from each actuator box (port 0x384, starboard 0x485), sent every 153.6 ms.",,
+Value (hex),Meaning,Status
+C0,Gearbox in neutral,Confirmed
+4C,"Shifting, cable still moving",Confirmed
+44,Ahead engaged,Confirmed
+48,Astern engaged,Confirmed 2 Oct 2026 (capture 3)
+40,Box still booting after power-on,Confirmed
+3. A full ahead-to-astern reversal in the actuator byte,,
+Read top to bottom. The capture 3 timings are the gaps between these changes.,,
+Step,Actuator byte,Meaning
+1,44,Ahead engaged
+2,4C,Shifting out of ahead
+3,C0,Neutral
+4,4C,Shifting into astern
+5,48,Astern engaged
+4. Example,,
+Lever byte,Actuator byte,Reading
+01,48,"The lever asked for astern (01) and the port actuator then reported astern engaged (48). First labelled astern: note 'port astern fast', capture 3."

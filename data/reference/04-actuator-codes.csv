@@ -1,0 +1,25 @@
+Actuator status byte 0x384 (port) and 0x485 (starboard)
+"One byte every 153.6 ms from each Flexball actuator box. It reports what the gearbox is doing, not what the lever asks for."
+
+1. Codes
+Value (hex),Meaning,Evidence,Confidence,Publish
+C0,Gearbox in neutral,"Every neutral lever, all captures",Measured,Now
+4C,Shifting: gear cable moving,"Between every pair of stable codes; usually one frame (153.6 ms), sometimes two",Measured,Now
+44,Ahead engaged,"Follows lever FF. Labelled 27 Sep 2026, capture 2 (""both together ahead"")",Measured,Now
+48,Astern engaged,"Follows lever 01. Labelled 2 Oct 2026, capture 3 (""port astern fast"")",Measured,Now
+40,Booting,"From power-on until the first C0, 1.08 s later",Measured,Now
+
+2. A full ahead-to-astern reversal
+Read top to bottom. Timings for this sequence are on the Reversals sheet.
+Step,Actuator byte,Meaning
+1,44,Ahead engaged
+2,4C,Shifting out of ahead
+3,C0,Neutral
+4,4C,Shifting into astern
+5,48,Astern engaged
+
+3. Example
+Lever byte,Actuator byte,Reading
+01,48,"The lever asked for astern (01) and the actuator then reported astern engaged (48). First labelled astern: note ""port astern fast"", capture 3, 2 Oct 2026."
+
+"Correlation in capture 1 (unlabelled): lever FF with 44 in 113 frames, lever 01 with 48 in 81 frames."

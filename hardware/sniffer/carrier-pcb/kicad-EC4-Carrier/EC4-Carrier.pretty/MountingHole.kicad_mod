@@ -1,0 +1,13 @@
+(footprint "MountingHole" (version 20221018) (generator ec4) (layer "F.Cu")
+    (tstamp 00000100-0000-0000-0000-000000000000)
+    (attr through_hole exclude_from_pos_files exclude_from_bom)
+    (fp_text reference "H1" (at 0 -2.4) (layer "F.SilkS")
+        (effects (font (size 0.8 0.8) (thickness 0.15)))
+      (tstamp 10000100-0000-0000-0000-000000000000)
+    )
+    (fp_text value "3.4mm" (at 0 2.4) (layer "F.Fab") hide
+        (effects (font (size 0.8 0.8) (thickness 0.15)))
+      (tstamp 20000100-0000-0000-0000-000000000000)
+    )
+    (pad "" np_thru_hole circle (at 0 0) (size 3.4 3.4) (drill 3.4) (layers "F&B.Cu" "*.Mask") (tstamp 41000000-0000-0000-0000-000000000000))
+  )

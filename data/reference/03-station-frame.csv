@@ -1,0 +1,23 @@
+Station frame 0x181 (main helm) and 0x282 (flybridge)
+"Seven bytes every 150 ms. Both stations send their lever positions all the time, whether or not they hold command."
+
+1. Byte map
+Byte,Content,Values,Confidence,Publish,Source
+0,Flags,See the flag table below,Measured,Now,Captures 1 to 3
+1,Port gear,"FF = ahead, 00 = neutral, 01 = astern",Measured,Now,"Ahead labelled 27 Sep (capture 2), astern labelled 2 Oct (capture 3)"
+2,Port throttle,00 to 64 hex = 0 to 100 %. Normally 00 when the gear byte is 00; 3 frames in capture 3 carried 2 to 7 % with gear 00 during fast lever moves,Measured,Now,Captures 1 to 3
+3,Unused,Always 00,Measured,Now,"All 19,887 station frames of captures 2 and 3, and capture 1"
+4,Starboard gear,Same coding as byte 1,Measured,Now,Captures 1 to 3
+5,Starboard throttle,Same coding as byte 2,Measured,Now,Captures 1 to 3
+6,Unused,Always 00,Measured,Now,As byte 3
+
+2. Byte 0 flags
+"Example: 43 = 40 + 02 + 01 = in command, warm-up on. 41 = in command, normal. 42 = warm-up, not in command (state after power-on)."
+Bit (hex),Meaning,Behaviour and timing,Confidence,Publish,Source
+0x40,Always set,In every station frame,Measured,Now,Captures 1 to 3
+0x01,This station has command,"Only one station holds it. With nobody in command (after power-on), holding Command sets it directly: flags 42 to 43",Measured,Now,"Capture 2, 293.28 s and 1172.37 s"
+0x02,"Warm-up (gear inhibited, throttle live)","System-wide. Set at every power-on. When one station changes it, the other station mirrors it on its next frame, 140 to 160 ms later",Measured,Now,"Capture 2, 610.82 s and others"
+0x04,Held pending disclosure,Not documented in this release,Measured,Hold,Capture 2
+0x08,Synchronisation,"System-wide, mirrored like 0x02, 140 to 160 ms later",Measured,Now,"Capture 2, 417.03 s (main) and 626.72 s (flybridge)"
+"0x10, 0x20, 0x80",Not seen set,,Measured,Now,Captures 1 to 3
+

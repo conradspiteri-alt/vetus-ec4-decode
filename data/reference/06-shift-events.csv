@@ -1,0 +1,79 @@
+Every gear change captured
+Times in seconds from the lever frame (first station frame with the new gear byte) to the actuator frames. Engines off. Capture 1 used firmware rev C.
+
+#,Capture,Log time (s),Station,Engine,Lever from,Lever to,Case,Throttle before (%),Actuator at lever change,First 4C (s),Final code (s),Final code,Note
+1,1,72.291,Main helm,Port,00,FF,Engage ahead from neutral,0,C0,0.379,0.686,44
+2,1,77.091,Main helm,Port,FF,00,"Disengage, throttle at idle",0,44,0.34,0.494,C0
+3,1,80.841,Main helm,Port,00,01,Engage astern from neutral,0,C0,,0.43,48,No 4C frame received: the shift fell between two actuator frames
+4,1,83.091,Main helm,Port,01,00,"Disengage, throttle at idle",0,48,,0.33,C0,No 4C frame received: the shift fell between two actuator frames
+5,1,87.591,Main helm,Starboard,00,FF,Engage ahead from neutral,0,C0,0.438,0.591,44
+6,1,90.741,Main helm,Starboard,FF,00,"Disengage, throttle at idle",0,44,0.36,0.513,C0
+7,1,92.991,Main helm,Starboard,00,01,Engage astern from neutral,0,C0,0.413,0.567,48
+8,1,96.291,Main helm,Starboard,01,00,"Disengage, throttle at idle",0,48,0.339,0.492,C0
+9,1,98.991,Main helm,Port,00,FF,Engage ahead from neutral,0,C0,0.403,0.556,44
+10,1,112.64,Main helm,Port,FF,00,"Disengage, throttle above 5 %",14,44,0.269,0.576,C0
+11,1,115.49,Main helm,Port,00,01,Engage astern from neutral,0,C0,,0.337,48,No 4C frame received: the shift fell between two actuator frames
+12,1,126.29,Main helm,Port,01,00,"Disengage, throttle above 5 %",30,48,,0.288,C0,No 4C frame received: the shift fell between two actuator frames
+13,1,128.54,Main helm,Starboard,00,FF,Engage ahead from neutral,0,C0,0.342,0.496,44
+14,1,139.34,Main helm,Starboard,FF,00,"Disengage, throttle above 5 %",12,44,0.293,0.447,C0
+15,1,141.14,Main helm,Starboard,00,01,Engage astern from neutral,0,C0,0.336,0.49,48
+16,1,151.04,Main helm,Starboard,01,00,"Disengage, throttle above 5 %",29,48,0.266,0.419,C0
+17,2,428.578,Main helm,Starboard,00,FF,Engage ahead from neutral,0,C0,,0.452,44,No 4C frame received: the shift fell between two actuator frames
+18,2,428.578,Main helm,Port,00,FF,Engage ahead from neutral,0,C0,0.451,0.604,44
+19,2,440.728,Main helm,Starboard,FF,00,"Disengage, throttle above 5 %",19,44,0.282,0.435,C0
+20,2,440.728,Main helm,Port,FF,00,"Disengage, throttle above 5 %",19,44,0.28,0.587,C0
+21,2,472.978,Main helm,Starboard,00,FF,Engage ahead from neutral,0,C0,0.438,0.592,44
+22,2,479.578,Main helm,Starboard,FF,00,"Disengage, throttle above 5 %",34,44,0.289,0.442,C0
+23,2,481.228,Main helm,Port,00,FF,Engage ahead from neutral,0,C0,0.327,0.634,44
+24,2,486.028,Main helm,Port,FF,00,"Disengage, throttle above 5 %",52,44,0.288,0.595,C0
+25,2,498.178,Main helm,Starboard,00,FF,Engage ahead from neutral,0,C0,0.426,0.58,44
+26,2,560.277,Main helm,Starboard,FF,00,"Disengage, throttle at idle",0,44,,0.376,C0,No 4C frame received: the shift fell between two actuator frames
+27,2,582.466,Flybridge,Port,00,FF,Engage ahead from neutral,0,C0,0.454,0.608,44
+28,2,589.366,Flybridge,Port,FF,00,"Disengage, throttle above 5 %",20,44,0.312,0.466,C0
+29,2,592.066,Flybridge,Starboard,00,FF,Engage ahead from neutral,0,C0,0.379,0.532,44
+30,2,598.966,Flybridge,Starboard,FF,00,"Disengage, throttle above 5 %",31,44,0.236,0.39,C0
+31,2,632.866,Flybridge,Port,00,FF,Engage ahead from neutral,0,C0,0.43,0.584,44
+32,2,632.866,Flybridge,Starboard,00,FF,Engage ahead from neutral,0,C0,0.432,0.586,44
+33,2,645.166,Flybridge,Starboard,FF,00,"Disengage, throttle above 5 %",21,44,0.266,0.419,C0
+34,2,645.166,Flybridge,Port,FF,00,"Disengage, throttle above 5 %",21,44,0.263,0.57,C0
+35,2,665.716,Flybridge,Starboard,00,FF,Engage ahead from neutral,0,C0,,0.45,44,No 4C frame received: the shift fell between two actuator frames
+36,2,669.916,Flybridge,Starboard,FF,00,"Disengage, throttle above 5 %",55,44,0.243,0.396,C0
+37,2,674.415,Flybridge,Port,00,FF,Engage ahead from neutral,0,C0,0.349,0.656,44
+38,2,680.865,Flybridge,Port,FF,00,"Disengage, throttle above 5 %",67,44,0.349,0.503,C0
+39,2,721.965,Flybridge,Starboard,00,FF,Engage ahead from neutral,0,C0,0.413,0.566,44
+40,2,789.164,Flybridge,Starboard,FF,00,"Disengage, throttle at idle",0,44,0.33,0.484,C0
+41,2,794.864,Flybridge,Starboard,00,FF,Engage ahead from neutral,0,C0,,0.467,44,No 4C frame received: the shift fell between two actuator frames
+42,2,796.814,Flybridge,Starboard,FF,00,"Disengage, throttle at idle",0,44,,0.36,C0,No 4C frame received: the shift fell between two actuator frames
+43,2,1245.42,Main helm,Starboard,00,FF,Engage ahead from neutral,0,C0,,0.448,44,No 4C frame received: the shift fell between two actuator frames
+44,2,1251.87,Main helm,Starboard,FF,00,"Disengage, throttle above 5 %",40,44,0.296,0.449,C0
+45,2,1281.57,Main helm,Port,00,FF,Engage ahead from neutral,0,C0,0.391,0.545,44
+46,2,1281.57,Main helm,Starboard,00,FF,Engage ahead from neutral,0,C0,0.392,0.545,44
+47,2,1288.92,Main helm,Starboard,FF,00,"Disengage, throttle above 5 %",9,44,0.26,0.414,C0
+48,2,1288.92,Main helm,Port,FF,00,"Disengage, throttle above 5 %",8,44,0.259,0.567,C0
+49,2,1537.17,Main helm,Starboard,00,FF,Engage ahead from neutral,0,C0,0.359,0.513,44
+50,2,1537.17,Main helm,Port,00,FF,Engage ahead from neutral,0,C0,0.358,0.665,44
+51,2,1644.42,Main helm,Starboard,FF,00,"Disengage, throttle above 5 %",38,44,0.313,0.466,C0
+52,2,1644.42,Main helm,Port,FF,00,"Disengage, throttle above 5 %",39,44,0.311,0.618,C0
+53,3,316.785,Main helm,Starboard,00,FF,Engage ahead from neutral,0,C0,0.36,0.513,44
+54,3,323.085,Main helm,Starboard,FF,00,"Disengage, throttle at idle",0,44,,0.357,C0,No 4C frame received: the shift fell between two actuator frames
+55,3,329.385,Main helm,Starboard,00,FF,Engage ahead from neutral,0,C0,0.353,0.507,44
+56,3,332.535,Main helm,Starboard,FF,00,"Disengage, throttle at idle",0,44,0.275,0.429,C0
+57,3,338.535,Main helm,Starboard,00,FF,Engage ahead from neutral,0,C0,0.419,0.572,44
+58,3,342.285,Main helm,Starboard,FF,00,"Disengage, throttle at idle",0,44,,0.355,C0,No 4C frame received: the shift fell between two actuator frames
+59,3,352.035,Main helm,Starboard,00,FF,Engage ahead from neutral,0,C0,0.434,0.588,44
+60,3,356.985,Main helm,Starboard,FF,00,"Disengage, throttle above 5 %",52,44,0.399,0.552,C0
+61,3,361.635,Main helm,Starboard,00,FF,Engage ahead from neutral,1,C0,0.356,0.51,44
+62,3,365.385,Main helm,Starboard,FF,00,"Disengage, throttle above 5 %",53,44,,0.446,C0,No 4C frame received: the shift fell between two actuator frames
+63,3,481.934,Main helm,Port,00,FF,Engage ahead from neutral,0,C0,0.467,0.62,44
+64,3,485.534,Main helm,Port,00,01,Reversal into astern,3,4C,,0.553,48,Actuator was still shifting when the lever changed; No 4C frame received: the shift fell between two actuator frames
+65,3,488.684,Main helm,Port,01,00,"Disengage, throttle above 5 %",28,48,,0.321,C0,No 4C frame received: the shift fell between two actuator frames
+66,3,515.984,Main helm,Starboard,00,FF,Engage ahead from neutral,0,C0,0.36,0.514,44
+67,3,522.134,Main helm,Starboard,00,01,Reversal into astern,45,44,0.814,0.968,48,Lever passed through neutral faster than the actuator; time includes leaving the previous gear
+68,3,526.333,Main helm,Starboard,01,00,"Disengage, throttle above 5 %",47,48,,0.609,C0,No 4C frame received: the shift fell between two actuator frames
+69,3,577.183,Main helm,Port,00,FF,Engage ahead from neutral,0,C0,0.44,0.593,44
+70,3,581.983,Main helm,Port,FF,00,"Disengage, throttle above 5 %",31,44,0.708,0.862,C0
+71,3,583.033,Main helm,Port,00,01,Engage astern from neutral,31,C0,,0.426,48,No 4C frame received: the shift fell between two actuator frames
+72,3,587.833,Main helm,Port,01,00,"Disengage, throttle above 5 %",38,48,,0.694,C0,No 4C frame received: the shift fell between two actuator frames
+73,3,590.233,Main helm,Port,00,FF,Engage ahead from neutral,2,C0,0.444,0.598,44
+74,3,594.283,Main helm,Port,00,01,Reversal into astern,53,4C,,0.541,48,Actuator was still shifting when the lever changed; No 4C frame received: the shift fell between two actuator frames
+75,3,596.533,Main helm,Port,01,00,"Disengage, throttle above 5 %",71,48,,0.749,C0,No 4C frame received: the shift fell between two actuator frames

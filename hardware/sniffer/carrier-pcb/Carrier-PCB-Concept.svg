@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1200" height="720" fill="#ffffff"/>
+  <text x="600" y="30" text-anchor="middle" font-size="21" font-weight="700" fill="#111">EC4 sniffer - carrier PCB concept</text>
+  <text x="600" y="51" text-anchor="middle" font-size="12.5" fill="#555">Block arrangement, not to scale. Final dimensions pending caliper measurements. Modules mount through their 2.54 mm headers.</text>
+
+  <!-- ================= OPTION A ================= -->
+  <text x="40" y="92" font-size="15" font-weight="700" fill="#222">Option A - single-sided (recommended) · est. ~80 x 55 mm</text>
+
+  <rect x="40" y="110" width="520" height="330" rx="6" fill="#f2f7f2" stroke="#2e7d32" stroke-width="2.5"/>
+  <text x="300" y="430" text-anchor="middle" font-size="10" fill="#555">carrier PCB outline · 4x M3 mounting holes at corners</text>
+
+  <!-- M3 holes -->
+  <circle cx="58" cy="128" r="5" fill="#fff" stroke="#555"/><circle cx="542" cy="128" r="5" fill="#fff" stroke="#555"/>
+  <circle cx="58" cy="422" r="5" fill="#fff" stroke="#555"/><circle cx="542" cy="422" r="5" fill="#fff" stroke="#555"/>
+
+  <!-- DevKitC -->
+  <rect x="76" y="146" width="300" height="118" rx="4" fill="#eaf5ec" stroke="#2e7d32" stroke-width="2"/>
+  <text x="226" y="192" text-anchor="middle" font-size="13" font-weight="700" fill="#1b5e20">ESP32-S3-DevKitC-1</text>
+  <text x="226" y="212" text-anchor="middle" font-size="10" fill="#256">2 x 22 header, 2.54 mm pitch</text>
+  <text x="226" y="230" text-anchor="middle" font-size="10" font-weight="700" fill="#c0392b">row spacing 22.86 or 25.4 - MEASURE</text>
+  <text x="226" y="248" text-anchor="middle" font-size="9.5" fill="#256">solder all pins for mechanical strength</text>
+  <!-- header rows -->
+  <g fill="#2e7d32"><rect x="86" y="152" width="280" height="5"/><rect x="86" y="253" width="280" height="5"/></g>
+  <text x="392" y="158" font-size="9" fill="#256">USB end</text>
+  <rect x="376" y="146" width="8" height="118" fill="#cfe3cf" stroke="#2e7d32"/>
+
+  <!-- SK Pang -->
+  <rect x="76" y="290" width="200" height="118" rx="4" fill="#f3eefb" stroke="#5a3d94" stroke-width="2"/>
+  <text x="176" y="326" text-anchor="middle" font-size="12" font-weight="700" fill="#3d2a66">SK Pang isolator</text>
+  <text x="176" y="344" text-anchor="middle" font-size="9.5" fill="#4a3577">host header -&gt; PCB</text>
+  <text x="176" y="362" text-anchor="middle" font-size="9.5" fill="#4a3577">CAN screw terminal faces</text>
+  <text x="176" y="378" text-anchor="middle" font-size="9.5" fill="#4a3577">the board edge (M12 tail)</text>
+  <rect x="76" y="396" width="200" height="12" fill="#ddd0f0" stroke="#5a3d94"/>
+  <text x="176" y="405" text-anchor="middle" font-size="8" fill="#3d2a66">screw terminal - CAN_H / CAN_L / 0V</text>
+
+  <!-- SD -->
+  <rect x="296" y="290" width="150" height="118" rx="4" fill="#fff6e6" stroke="#a9791c" stroke-width="2"/>
+  <text x="371" y="330" text-anchor="middle" font-size="12" font-weight="700" fill="#7a5a12">microSD</text>
+  <text x="371" y="348" text-anchor="middle" font-size="9.5" fill="#7a5a12">35 x 25 mm (confirm)</text>
+  <text x="371" y="366" text-anchor="middle" font-size="9.5" fill="#7a5a12">6-pin header</text>
+  <text x="371" y="392" text-anchor="middle" font-size="9" font-weight="700" fill="#a9791c">card slot to edge</text>
+
+  <!-- power block -->
+  <rect x="466" y="290" width="76" height="118" rx="4" fill="#eef4fb" stroke="#1565c0" stroke-width="2"/>
+  <text x="504" y="316" text-anchor="middle" font-size="10" font-weight="700" fill="#0d47a1">PWR IN</text>
+  <text x="504" y="334" text-anchor="middle" font-size="8.5" fill="#345">screw term.</text>
+  <text x="504" y="350" text-anchor="middle" font-size="8.5" fill="#345">F + TVS + FET</text>
+  <text x="504" y="366" text-anchor="middle" font-size="8.5" fill="#345">iso DC-DC</text>
+  <text x="504" y="382" text-anchor="middle" font-size="8.5" fill="#345">(optional)</text>
+  <text x="504" y="398" text-anchor="middle" font-size="8.5" fill="#345">+ LK1 bypass</text>
+
+  <!-- ================= OPTION B ================= -->
+  <text x="620" y="92" font-size="15" font-weight="700" fill="#222">Option B - double-sided · est. ~72 x 30 mm</text>
+
+  <rect x="620" y="110" width="330" height="150" rx="6" fill="#f2f7f2" stroke="#2e7d32" stroke-width="2.5"/>
+  <text x="785" y="134" text-anchor="middle" font-size="11" font-weight="700" fill="#1b5e20">TOP face</text>
+  <rect x="644" y="146" width="282" height="90" rx="4" fill="#eaf5ec" stroke="#2e7d32" stroke-width="2"/>
+  <text x="785" y="184" text-anchor="middle" font-size="12" font-weight="700" fill="#1b5e20">ESP32-S3-DevKitC-1</text>
+  <text x="785" y="204" text-anchor="middle" font-size="9.5" fill="#256">fills the board footprint</text>
+
+  <rect x="620" y="278" width="330" height="162" rx="6" fill="#faf5f2" stroke="#8a5a2e" stroke-width="2.5"/>
+  <text x="785" y="302" text-anchor="middle" font-size="11" font-weight="700" fill="#6a4420">BOTTOM face (under the DevKitC)</text>
+  <rect x="640" y="316" width="140" height="100" rx="4" fill="#f3eefb" stroke="#5a3d94" stroke-width="2"/>
+  <text x="710" y="356" text-anchor="middle" font-size="11" font-weight="700" fill="#3d2a66">SK Pang</text>
+  <text x="710" y="374" text-anchor="middle" font-size="9" fill="#4a3577">terminal faces down</text>
+  <rect x="796" y="316" width="134" height="100" rx="4" fill="#fff6e6" stroke="#a9791c" stroke-width="2"/>
+  <text x="863" y="356" text-anchor="middle" font-size="11" font-weight="700" fill="#7a5a12">microSD</text>
+  <text x="863" y="374" text-anchor="middle" font-size="9" fill="#a9791c">slot faces down</text>
+  <text x="785" y="432" text-anchor="middle" font-size="9" fill="#8a5a2e">needs taller standoffs + enclosure access from below</text>
+
+  <!-- ================= NETS ================= -->
+  <rect x="40" y="470" width="520" height="220" rx="8" fill="#fbfbfc" stroke="#889"/>
+  <text x="56" y="494" font-size="12" font-weight="700" fill="#223">Nets carried by the PCB (9 total)</text>
+  <g font-size="10.5" fill="#334">
+    <text x="56" y="518">+3V3   : DevKitC 3V3 (J1.1)  -&gt;  SK Pang VCC, SD VCC</text>
+    <text x="56" y="538">GND    : DevKitC GND (J1.22) -&gt;  SK Pang GND, SD GND, PWR 0V</text>
+    <text x="56" y="558">+5V    : PWR block           -&gt;  DevKitC 5V (J1.21)</text>
+    <text x="56" y="578">CAN_TX : GPIO5  (J1.5)       -&gt;  SK Pang TXD</text>
+    <text x="56" y="598">CAN_RX : GPIO4  (J1.4)       -&gt;  SK Pang RXD</text>
+    <text x="56" y="618">SD_SCK : GPIO12 (J1.18)      -&gt;  SD CLK</text>
+    <text x="56" y="638">SD_MOSI: GPIO11 (J1.17)      -&gt;  SD DI</text>
+    <text x="56" y="658">SD_MISO: GPIO13 (J1.19)      -&gt;  SD DO</text>
+    <text x="56" y="678">SD_CS  : GPIO10 (J1.16)      -&gt;  SD CS</text>
+  </g>
+
+  <!-- ================= BLOCKERS ================= -->
+  <rect x="620" y="470" width="540" height="220" rx="8" fill="#fff7f6" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="636" y="494" font-size="12" font-weight="700" fill="#a5261c">Before artwork - measure these</text>
+  <g font-size="10.5" fill="#334">
+    <text x="636" y="518">1. DevKitC row-to-row spacing (pin centre to centre). 22.86 vs 25.4 mm</text>
+    <text x="652" y="534">is a documented library-vs-reality discrepancy. Wrong = scrap board.</text>
+    <text x="636" y="556">2. SK Pang: overall L x W, host-header type/pin order, screw-terminal</text>
+    <text x="652" y="572">position relative to the edge, any mounting holes.</text>
+    <text x="636" y="594">3. microSD: confirm 35 x 25 mm, 6-pin header order, card-slot direction.</text>
+    <text x="636" y="616">4. DECISION: power input = 5 V direct, or 9-36 V via isolated DC-DC?</text>
+  </g>
+  <text x="636" y="646" font-size="10" font-weight="700" fill="#155">Recommended: 9-36 V with the DC-DC optional to populate + LK1 bypass link.</text>
+  <text x="636" y="664" font-size="9.5" fill="#889">Isolated input keeps the logic side floating so the SK Pang barrier still means something</text>
+  <text x="636" y="678" font-size="9.5" fill="#889">once you hard-wire to boat 12 V. Bench work stays on the power bank via USB either way.</text>
+</svg>

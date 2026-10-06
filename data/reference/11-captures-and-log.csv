@@ -1,0 +1,18 @@
+Captures and work log
+
+1. Captures
+Capture,File,Date,Frames,Duration (s),Sniffer firmware,Content
+1,capture1.log,23 Sep 2026,5522,157.5,rev C,"Main helm only, unlabelled. Receipt timestamps compressed at the start of the file, so excluded from period statistics"
+2,not published,27 Sep 2026,45520,1532.5,rev D.2,"Both helms, all modes, two power-ons, 37 labelled notes. 73 frames missed by the sniffer (F-12, F-15)"
+3,capture3.log,2 Oct 2026,19786,577.5,rev D.2,"Starboard-only frame-loss check (Block A), fast reversals (Block B), labelled. Zero frames missed"
+
+2. Work log
+Date,Step,,,,,Outcome
+23 Sep 2026,Capture 1,,,,,Station and actuator bytes decoded; gear sign guessed
+24 Sep 2026,Sniffer terminal replaced,,,,,A pad lifted during the repair; this later broke CAN_L (F-15)
+25 Sep 2026,Publishing plan,,,,,"Receive side published after capture 2; transmit side only once proven, after contacting Vetus and Flexball"
+27 Sep 2026,Capture 2,,,,,"Flags, boot sequence, warm-up, sync; gear sign corrected"
+28 Sep 2026,Bus error analysis,,,,,Losses confined to the port actuator during starboard activity; tap wiring confirmed
+29 Sep 2026,Shift delays checked,,,,,dI and dA at factory default 0.0 s
+1 Oct 2026,Sniffer fault found,,,,,"CAN_L open circuit; wire repair, continuity confirmed"
+2 Oct 2026,Capture 3,,,,,"Repair confirmed, astern labelled, reversal timing measured"

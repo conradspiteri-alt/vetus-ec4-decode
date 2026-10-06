@@ -1,0 +1,32 @@
+firmware     signal  J1 pin  expected net net on PCB    result
+-----------------------------------------------------------------------
+PIN_CAN_TX   GPIO5        5  CAN_TX       CAN_TX        OK
+PIN_CAN_RX   GPIO4        4  CAN_RX       CAN_RX        OK
+PIN_SD_SCK   GPIO12      18  SD_SCK       SD_SCK        OK
+PIN_SD_MOSI  GPIO11      17  SD_MOSI      SD_MOSI       OK
+PIN_SD_MISO  GPIO13      19  SD_MISO      SD_MISO       OK
+PIN_SD_CS    GPIO10      16  SD_CS        SD_CS         OK
+(rail)       3V3          1  +3V3         +3V3          OK
+(rail)       5V          21  +5V          +5V           OK
+(rail)       GND         22  GND          GND           OK
+
+module pad  silkscreen     expected net net on PCB    result
+--------------------------------------------------------------
+J3.1  +Vcc           +3V3         +3V3          OK
+J3.2  CAN_TX         CAN_TX       CAN_TX        OK
+J3.3  CAN_RX         CAN_RX       CAN_RX        OK
+J3.4  GND            GND          GND           OK
+J4.1  3V3            +3V3         +3V3          OK
+J4.2  GND            GND          GND           OK
+J4.3  CD             (none)       (none)        OK
+J4.4  D1             (none)       (none)        OK
+J4.5  D0 (MISO)      SD_MISO      SD_MISO       OK
+J4.6  CLK (SCK)      SD_SCK       SD_SCK        OK
+J4.7  CMD (MOSI)     SD_MOSI      SD_MOSI       OK
+J4.8  D3 (CS)        SD_CS        SD_CS         OK
+J4.9  D2             (none)       (none)        OK
+
+SPI bus begin order: PIN_SD_SCK, PIN_SD_MISO, PIN_SD_MOSI, PIN_SD_CS   ->  OK (SCK, MISO, MOSI, CS)
+SDIO -> SPI mapping on the microSD breakout: CLK=SCK, CMD=MOSI, D0=MISO, D3=CS
+
+NET-LIST CORRELATION: PASS

@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1220 1150" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1220" height="1150" fill="#ffffff"/>
+  <text x="610" y="30" text-anchor="middle" font-size="21" font-weight="700" fill="#111">EC4 sniffer - pin-accurate wiring</text>
+  <text x="610" y="51" text-anchor="middle" font-size="12.5" fill="#555">Logic side fully defined. M12 colour→pin fixed (IEC). Which pin is CAN_H/CAN_L is metered on the boat (EC4 is proprietary).</text>
+
+  <!-- ===================== ESP32 ===================== -->
+  <rect x="470" y="90" width="260" height="360" rx="8" fill="#eaf5ec" stroke="#2e7d32" stroke-width="2"/>
+  <text x="600" y="116" text-anchor="middle" font-size="14" font-weight="700" fill="#1b5e20">ESP32-S3-DevKitC-1</text>
+  <text x="600" y="134" text-anchor="middle" font-size="10" fill="#256">listen-only · powered by USB bank</text>
+  <!-- left pins (to SK Pang) -->
+  <g font-size="10.5" font-weight="700" fill="#1b5e20">
+    <text x="486" y="176">3V3  [P1]</text>
+    <text x="486" y="204">GND  [P22]</text>
+    <text x="486" y="232">GPIO5  [P5]</text>
+    <text x="486" y="260">GPIO4  [P4]</text>
+  </g>
+  <text x="486" y="158" font-size="9" fill="#256">- to SK Pang -</text>
+  <text x="560" y="232" font-size="8" fill="#256">TWAI TX</text>
+  <text x="560" y="260" font-size="8" fill="#256">TWAI RX</text>
+  <!-- right pins (to SD) -->
+  <g font-size="10.5" font-weight="700" fill="#1b5e20" text-anchor="end">
+    <text x="714" y="176">[P2]  3V3</text>
+    <text x="714" y="204">[P22]  GND</text>
+    <text x="714" y="232">[P18]  GPIO12</text>
+    <text x="714" y="260">[P17]  GPIO11</text>
+    <text x="714" y="288">[P19]  GPIO13</text>
+    <text x="714" y="316">[P16]  GPIO10</text>
+  </g>
+  <text x="714" y="158" font-size="9" fill="#256" text-anchor="end">- to SD -</text>
+  <text x="648" y="232" font-size="8" fill="#256" text-anchor="end">SCK</text>
+  <text x="648" y="260" font-size="8" fill="#256" text-anchor="end">MOSI</text>
+  <text x="648" y="288" font-size="8" fill="#256" text-anchor="end">MISO</text>
+  <text x="648" y="316" font-size="8" fill="#256" text-anchor="end">CS</text>
+  <rect x="500" y="386" width="200" height="46" rx="5" fill="#cfe3cf" stroke="#2e7d32"/>
+  <text x="600" y="408" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1b5e20">USB (native)</text>
+  <text x="600" y="424" text-anchor="middle" font-size="9" fill="#256">power bank · flashing · GVRET fallback</text>
+
+  <!-- ===================== SK PANG ===================== -->
+  <rect x="210" y="120" width="200" height="230" rx="8" fill="#f3eefb" stroke="#5a3d94" stroke-width="2"/>
+  <text x="310" y="146" text-anchor="middle" font-size="13" font-weight="700" fill="#3d2a66">SK Pang isolator</text>
+  <text x="310" y="162" text-anchor="middle" font-size="9" fill="#4a3577">ISO1050 · 2500V</text>
+  <!-- host side pins (right, to ESP32) -->
+  <g font-size="10.5" font-weight="700" fill="#3d2a66" text-anchor="end">
+    <text x="394" y="192">VCC</text>
+    <text x="394" y="214">GND</text>
+    <text x="394" y="236">TXD</text>
+    <text x="394" y="258">RXD</text>
+  </g>
+  <!-- bus side pins (left, to M12) -->
+  <g font-size="10.5" font-weight="700" fill="#3d2a66">
+    <text x="226" y="300">CANH</text>
+    <text x="226" y="322">CANL</text>
+    <text x="226" y="344">GND (bus)</text>
+  </g>
+  <line x1="310" y1="270" x2="310" y2="286" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="310" y="282" text-anchor="middle" font-size="7.5" fill="#c0392b">barrier</text>
+
+  <!-- ESP32<->SK Pang wires -->
+  <line x1="410" y1="188" x2="482" y2="172" stroke="#1565c0" stroke-width="2"/><text x="446" y="176" text-anchor="middle" font-size="8" fill="#1565c0">3V3</text>
+  <line x1="410" y1="210" x2="482" y2="200" stroke="#333" stroke-width="2"/><text x="446" y="214" text-anchor="middle" font-size="8" fill="#333">GND</text>
+  <line x1="410" y1="232" x2="482" y2="228" stroke="#6a4caf" stroke-width="2"/><text x="446" y="246" text-anchor="middle" font-size="8" fill="#6a4caf">GPIO5→TXD</text>
+  <line x1="410" y1="254" x2="482" y2="256" stroke="#6a4caf" stroke-width="2"/><text x="446" y="270" text-anchor="middle" font-size="8" fill="#6a4caf">RXD→GPIO4</text>
+
+  <!-- ===================== SD ===================== -->
+  <rect x="800" y="140" width="200" height="200" rx="8" fill="#fff6e6" stroke="#a9791c" stroke-width="2"/>
+  <text x="900" y="166" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7a5a12">microSD breakout</text>
+  <text x="900" y="182" text-anchor="middle" font-size="9" fill="#7a5a12">3.3V · SPI · (when it arrives)</text>
+  <g font-size="10.5" font-weight="700" fill="#7a5a12">
+    <text x="816" y="212">VCC</text>
+    <text x="816" y="234">GND</text>
+    <text x="816" y="256">CLK</text>
+    <text x="816" y="278">DI (MOSI)</text>
+    <text x="816" y="300">DO (MISO)</text>
+    <text x="816" y="322">CS</text>
+  </g>
+  <line x1="718" y1="176" x2="810" y2="208" stroke="#1565c0" stroke-width="1.8"/>
+  <line x1="718" y1="204" x2="810" y2="230" stroke="#333" stroke-width="1.8"/>
+  <line x1="718" y1="232" x2="810" y2="252" stroke="#a9791c" stroke-width="1.8"/>
+  <line x1="718" y1="260" x2="810" y2="274" stroke="#a9791c" stroke-width="1.8"/>
+  <line x1="718" y1="288" x2="810" y2="296" stroke="#a9791c" stroke-width="1.8"/>
+  <line x1="718" y1="316" x2="810" y2="318" stroke="#a9791c" stroke-width="1.8"/>
+  <g font-size="7.5" fill="#7a5a12" font-weight="700">
+    <text x="763" y="186">3V3→VCC</text>
+    <text x="763" y="214">GND→GND</text>
+    <text x="763" y="240">GPIO12→CLK</text>
+    <text x="763" y="266">GPIO11→DI</text>
+    <text x="763" y="294">GPIO13→DO</text>
+    <text x="763" y="322">GPIO10→CS</text>
+  </g>
+
+  <!-- ===================== M12 RS 877-1154 ===================== -->
+  <rect x="30" y="150" width="150" height="250" rx="8" fill="#eafaef" stroke="#1b8a3a" stroke-width="2"/>
+  <text x="105" y="174" text-anchor="middle" font-size="12" font-weight="700" fill="#155">RS 877-1154</text>
+  <text x="105" y="190" text-anchor="middle" font-size="9" fill="#245">M12 male, 5-pin, pre-wired</text>
+  <!-- lead list -->
+  <g font-size="10">
+    <rect x="44" y="204" width="14" height="10" fill="#7a4a12"/><text x="64" y="213" fill="#222">pin1 brown</text>
+    <rect x="44" y="224" width="14" height="10" fill="#eee" stroke="#999"/><text x="64" y="233" fill="#222">pin2 white</text>
+    <rect x="44" y="244" width="14" height="10" fill="#1565c0"/><text x="64" y="253" fill="#222">pin3 blue</text>
+    <rect x="44" y="264" width="14" height="10" fill="#111"/><text x="64" y="273" fill="#222">pin4 black</text>
+    <rect x="44" y="284" width="14" height="10" fill="#999"/><text x="64" y="293" fill="#c0392b" font-weight="700">pin5 grey - UNUSED</text>
+  </g>
+  <text x="105" y="322" text-anchor="middle" font-size="8.5" fill="#245">colours confirmed:</text>
+  <text x="105" y="334" text-anchor="middle" font-size="8.5" fill="#245">RS 877-1154 datasheet · 200mm · 0.34mm²</text>
+  <!-- face view (male front, per datasheet p4) -->
+  <circle cx="105" cy="368" r="24" fill="#fff" stroke="#155"/>
+  <text x="105" y="350" text-anchor="middle" font-size="7.5" font-weight="700" fill="#155">2</text>
+  <text x="130" y="367" text-anchor="middle" font-size="7.5" font-weight="700" fill="#155">1</text>
+  <text x="112" y="378" text-anchor="middle" font-size="7.5" font-weight="700" fill="#155">5</text>
+  <text x="93" y="388" text-anchor="middle" font-size="7.5" font-weight="700" fill="#155">4</text>
+  <text x="80" y="367" text-anchor="middle" font-size="7.5" font-weight="700" fill="#155">3</text>
+  <text x="105" y="402" text-anchor="middle" font-size="6.5" fill="#666">male front: 2 top,1 R,5 mid,4 BL,3 L</text>
+
+  <!-- M12 -> SK Pang bus wires (the metered pair) -->
+  <line x1="180" y1="268" x2="222" y2="296" stroke="#1b8a3a" stroke-width="2.5"/>
+  <line x1="180" y1="288" x2="222" y2="318" stroke="#1b8a3a" stroke-width="2.5"/>
+  <line x1="180" y1="248" x2="222" y2="340" stroke="#888" stroke-width="1.8" stroke-dasharray="3 2"/>
+  <text x="198" y="288" text-anchor="middle" font-size="7.5" font-weight="700" fill="#1b8a3a">CANpair→H</text>
+  <text x="198" y="316" text-anchor="middle" font-size="7.5" font-weight="700" fill="#1b8a3a">CANpair→L</text>
+  <text x="198" y="346" text-anchor="middle" font-size="7" fill="#666">0V→GND</text>
+  <text x="105" y="440" text-anchor="middle" font-size="7.5" fill="#c0392b">CAN pair = 2 of pins 1–4 (meter ~60Ω). Pin5 unused.</text>
+
+  <!-- ===================== MAPPING TABLE ===================== -->
+  <rect x="30" y="470" width="560" height="180" rx="8" fill="#fbfbfc" stroke="#889"/>
+  <text x="46" y="494" font-size="12" font-weight="700" fill="#223">M12 pin map - EC4 uses pins 1–4 ONLY (confirmed on the boat)</text>
+  <g font-size="10.5" fill="#334">
+    <text x="46" y="516" fill="#c0392b" font-weight="700">pin 5 · grey (centre) = UNUSED - existing males have NO centre pin → CAP, never wired</text>
+    <text x="46" y="536">CAN pair = TWO of pins 1–4 (brown/white/blue/black). Find by ~60Ω  →  SK Pang CANH / CANL</text>
+    <text x="46" y="556">of the remaining two:  the ~+12V pin → CAP OFF ;  the 0V pin → SK Pang GND (bus reference)</text>
+    <text x="46" y="576">H vs L: scope the live pair - the line rising on a dominant bit is CAN_H. Or swap-and-retry.</text>
+  </g>
+  <text x="46" y="602" font-size="9.5" fill="#889">The earlier NMEA2000 guess (CAN_L on pin 5) does NOT apply here - pin 5 is unused. Meter the pair among 1–4.</text>
+  <text x="46" y="618" font-size="9.5" fill="#889">Wrong pins = no decode, not damage (ISO1050 bus pins tolerate &gt;12V). H/L swap is free.</text>
+
+  <!-- ===================== METER PROCEDURE ===================== -->
+  <rect x="610" y="470" width="580" height="180" rx="8" fill="#eef7ee" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="626" y="494" font-size="12" font-weight="700" fill="#1b5e20">On the boat, before soldering the CAN pair</text>
+  <g font-size="10.5" fill="#245">
+    <text x="626" y="516">1. Bus powered OFF. Meter resistance between lead pairs. The pair reading ~60Ω</text>
+    <text x="642" y="532">(two 120Ω terminators in parallel) is CAN_H / CAN_L. Those two leads go to CANH/CANL.</text>
+    <text x="626" y="554">2. Bus powered ON, engines off. Both CAN lines idle ~2.5V. CAN_H rises on dominant,</text>
+    <text x="642" y="570">CAN_L falls. Or trust the pinout once identified. H/L wrong = no decode, swap, retry.</text>
+    <text x="626" y="592">3. Confirm the ~60Ω is the bus (not a single 120Ω) - a mid-run tap reads ~60Ω.</text>
+    <text x="626" y="612">4. Cap the +12V lead. Never wire bus 12V to the board (powered by the bank).</text>
+  </g>
+
+  <!-- ===================== NOTES ===================== -->
+  <rect x="30" y="668" width="1160" height="188" rx="8" fill="#fff7f6" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="46" y="692" font-size="12" font-weight="700" fill="#a5261c">Rules &amp; checks</text>
+  <text x="46" y="714" font-size="10.5" fill="#334">• SK Pang bus GND connects to the bus V-/drain (reference) - this is the isolated domain, correct and expected. +12V stays capped.</text>
+  <text x="46" y="732" font-size="10.5" fill="#334">• SK Pang terminator: check for a 120Ω jumper. Bench 2-node test → leave ON. Boat stub via the CANT → must be OFF (bus already has its two).</text>
+  <text x="46" y="750" font-size="10.5" fill="#334">• Listen-only is set in firmware; leaving GPIO5→TXD connected is safe (held recessive). Belt-and-braces: lift TXD for the first boat listen.</text>
+  <text x="46" y="768" font-size="10.5" fill="#334">• The box's M12 plugs into the CANT spare female. Meter at that drop. Stub &lt; 300 mm. Change no DIP switch / JP19.</text>
+  <text x="46" y="786" font-size="10.5" fill="#334">• 3V3 and GND from the ESP32 feed BOTH the SK Pang host side and the SD breakout. Bus side self-powered across the barrier.</text>
+  <text x="46" y="804" font-size="10.5" fill="#334">• If SD init is flaky: 10k pull-ups MISO→3V3 and CS→3V3.</text>
+  <text x="46" y="828" font-size="10" fill="#889">Known/fixed: all logic-side pins, and M12 colour→pin. To confirm on the boat: which M12 pins are CAN_H/CAN_L, and the SK Pang pin labels vs your board silkscreen.</text>
+  <text x="46" y="844" font-size="10" fill="#889">Colours: brown=1, white=2, blue=3, black=4, grey=5 (IEC/DIN M12 A-coded).</text>
+
+  <!-- ===================== CONNECTION TABLE ===================== -->
+  <text x="30" y="890" font-size="13" font-weight="700" fill="#111">Connection list (every wire, both ends)</text>
+
+  <!-- logic-side box -->
+  <rect x="30" y="900" width="600" height="230" rx="8" fill="#eefcf0" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="46" y="922" font-size="11" font-weight="700" fill="#1b5e20">Logic side  ·  ESP32 pin [Pn]  →  device pad</text>
+  <g font-size="10.5" fill="#1b3a1b">
+    <text x="46" y="944">P1  · 3V3    →  SK Pang VCC  &amp;  SD VCC</text>
+    <text x="46" y="962">P22 · GND    →  SK Pang GND  &amp;  SD GND</text>
+    <text x="46" y="980">P5  · GPIO5  →  SK Pang TXD   (CAN TX)</text>
+    <text x="46" y="998">P4  · GPIO4  →  SK Pang RXD   (CAN RX)</text>
+    <text x="46" y="1016">P18 · GPIO12 →  SD CLK (SCK)</text>
+    <text x="46" y="1034">P17 · GPIO11 →  SD DI (MOSI)</text>
+    <text x="46" y="1052">P19 · GPIO13 →  SD DO (MISO)</text>
+    <text x="46" y="1070">P16 · GPIO10 →  SD CS</text>
+  </g>
+  <text x="46" y="1094" font-size="9" fill="#3a5a3a">Numbering (your convention): P1 top-left, DOWN the left column = P1–P22, then UP the right = P23–P44.</text>
+  <text x="46" y="1108" font-size="9" fill="#3a5a3a">All used pins are on the LEFT header. P2 is a 2nd 3V3. SK Pang / SD pads are named - confirm silkscreen.</text>
+  <text x="46" y="1122" font-size="9" fill="#3a5a3a">3V3 (P1) and GND (P22) each fan out to BOTH boards.</text>
+
+  <!-- bus-side box -->
+  <rect x="640" y="900" width="550" height="200" rx="8" fill="#eafaef" stroke="#1b8a3a" stroke-width="1.5"/>
+  <text x="656" y="922" font-size="11" font-weight="700" fill="#155">Bus side  ·  SK Pang pad  →  M12 pin (colour)</text>
+  <g font-size="10.5" fill="#154a2a">
+    <text x="656" y="946">SK Pang CANH      →  EC4 CAN_H  (one of pins 1–4, metered)</text>
+    <text x="656" y="966">SK Pang CANL      →  EC4 CAN_L  (one of pins 1–4, metered)</text>
+    <text x="656" y="986">SK Pang GND (bus) →  EC4 0V / V-  (of the remaining two)</text>
+    <text x="656" y="1006" fill="#c0392b" font-weight="700">+12V pin → CAP OFF ·  pin 5 grey (centre) UNUSED → cap</text>
+  </g>
+  <text x="656" y="1032" font-size="9.5" fill="#245">CAN pair found by ~60Ω, bus OFF. Only pins 1–4 are in use (pin 5 has no pin on the EC4 males).</text>
+  <text x="656" y="1050" font-size="9.5" fill="#245">H vs L: scope the live pair - the rising line on a dominant bit is CAN_H. Or swap-retry, no damage.</text>
+  <text x="656" y="1068" font-size="9.5" fill="#245">SK Pang terminator jumper: ON for the bench 2-node test, OFF for the boat stub.</text>
+  <text x="656" y="1086" font-size="9.5" fill="#245">Wrong guess is non-destructive (ISO1050 tolerates &gt;12V) - but meter, don't guess.</text>
+</svg>

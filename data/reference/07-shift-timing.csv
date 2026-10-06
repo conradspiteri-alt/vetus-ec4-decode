@@ -1,0 +1,21 @@
+Lever-to-actuator response times
+"Calculated from the Shift events sheet (formulas). Seconds from the lever frame. ""Final"" = the stable code (44, 48 or C0) is first received."
+
+Case,Events,First 4C min,First 4C mean,First 4C max,Final min,Final mean,Final max,Publish
+Engage ahead from neutral,31,0.327,0.399778,0.467,0.448,0.560355,0.686,Now
+Engage astern from neutral,5,0.336,0.3745,0.413,0.337,0.45,0.567,Now
+Reversal into ahead,0,n/a,n/a,n/a,n/a,n/a,n/a,Now
+Reversal into astern,3,0.814,0.814,0.814,0.541,0.687333,0.968,Now
+"Disengage, throttle at idle",10,0.275,0.3288,0.36,0.33,0.419,0.513,Now
+"Disengage, throttle above 5 %",26,0.236,0.3091,0.708,0.288,0.510769,0.862,Now
+All events,75
+
+Other measured timings
+Timing,Value,Detail,,,,,,Publish
+"Engagement from neutral, capture 3 only",0.43 to 0.62 s,Lever frame to 44 or 48,,,,,,Now
+"Disengagement, throttle at idle",0.32 to 0.61 s,"Lever frame to C0, capture 3",,,,,,Now
+"Disengagement, lever above about 20 % just before",0.80 to 0.98 s,"The station frame already shows gear 00 with the throttle at or near 00, so the extra time is inside the actuator: it returns the throttle cable to idle before shifting",,,,,,Now
+Latest first 4C seen,0.814 s,"Starboard, fast reversal from ahead at 45 % (capture 3, 522.13 s). At idle the first 4C never came later than 0.47 s",,,,,,Now
+Time spent in 4C,Usually one actuator frame,153.6 ms per frame; the cable movement itself lasts between about 0.15 and 0.3 s,,,,,,Now
+
+"For anyone building a controller or monitor: a timeout on the first status change must allow at least about 0.85 s when the throttle is not already at idle, or about 0.5 s when it is."
